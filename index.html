@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usmania Restaurant Quetta | Old Pishin Stop — Sajji, Ribs, Kabuli Pulao &amp; Live BBQ</title>
+<meta name="description" content="Usmania Restaurant, Old Pishin Stop, Khojak Road, Model Town Quetta. Balochi sajji, tandoori mutton ribs, kabuli pulao, karahi, Chinese and the famous evening buffet. Open daily 12 PM – 12 AM. Call (081) 2829629 or order on WhatsApp.">
+<meta property="og:title" content="Usmania Restaurant Quetta | Old Pishin Stop">
+<meta property="og:description" content="Balochi sajji, tandoori ribs, kabuli pulao — Quetta on a plate. Open daily 12 PM – 12 AM.">
+<meta property="og:type" content="website">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<!-- Structured data (helps Google show the restaurant info) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Usmania Restaurant Quetta","servesCuisine":["Pakistani","Balochi","BBQ","Chinese"],"priceRange":"$$","telephone":"+92-81-2829629","acceptsReservations":"True","openingHours":"Mo-Su 12:00-24:00","address":{"@type":"PostalAddress","streetAddress":"Old Pishin Stop, Khojak Road, near University Law College, Model Town","addressLocality":"Quetta","postalCode":"87300","addressRegion":"Balochistan","addressCountry":"PK"}}
+</script>
+
+<style>
+  :root{
+    --bg:#0B0A07;
+    --bg2:#131009;
+    --card:#1A1510;
+    --card2:#211B13;
+    --line:rgba(214,165,63,.14);
+    --gold:#D6A53F;
+    --gold2:#EDC97B;
+    --cream:#F2EAD9;
+    --muted:#A5947B;
+    --red:#C65D3B;
+    --green:#3FAF7A;
+  }
+  *{ -webkit-tap-highlight-color:transparent; }
+  html{ scroll-padding-top:90px; }
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Outfit',sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--gold); color:#14100a; }
+  .serif{ font-family:'Fraunces',serif; }
+
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:#0e0c08; }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(var(--gold),#8a6420); border-radius:99px; border:2px solid #0e0c08; }
+
+  .grain::before{
+    content:""; position:fixed; inset:-50%; z-index:5; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grainMove 8s steps(10) infinite;
+  }
+  @keyframes grainMove{ 0%,100%{transform:translate(0,0)} 20%{transform:translate(-3%,2%)} 40%{transform:translate(2%,-3%)} 60%{transform:translate(-2%,-2%)} 80%{transform:translate(3%,3%)} }
+
+  #preloader{ position:fixed; inset:0; z-index:100; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; transition:opacity .8s ease, visibility .8s ease; }
+  #preloader.done{ opacity:0; visibility:hidden; }
+  .pl-letter{ display:inline-block; transform:translateY(110%); opacity:0; animation:plUp .9s cubic-bezier(.22,1,.36,1) forwards; }
+  @keyframes plUp{ to{ transform:translateY(0); opacity:1; } }
+  .pl-bar{ width:180px; height:1px; background:rgba(255,255,255,.1); overflow:hidden; border-radius:99px; }
+  .pl-bar span{ display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--gold2)); transition:width .3s ease; }
+
+  #progressbar{ position:fixed; top:0; left:0; height:3px; width:0%; z-index:80; background:linear-gradient(90deg,#8a6420,var(--gold),var(--gold2)); box-shadow:0 0 12px rgba(214,165,63,.6); }
+
+  .reveal{ opacity:0; transform:translateY(42px); transition:opacity 1s cubic-bezier(.22,1,.36,1) var(--d,0s), transform 1s cubic-bezier(.22,1,.36,1) var(--d,0s); will-change:opacity,transform; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  .reveal-scale{ opacity:0; transform:scale(.92); transition:opacity 1.1s cubic-bezier(.22,1,.36,1) var(--d,0s), transform 1.1s cubic-bezier(.22,1,.36,1) var(--d,0s); }
+  .reveal-scale.in{ opacity:1; transform:scale(1); }
+
+  .line-mask{ display:block; overflow:hidden; }
+  .line-mask > span{ display:block; transform:translateY(115%); }
+  .hero-loaded .line-mask > span{ animation:lineUp 1.15s cubic-bezier(.22,1,.36,1) forwards; animation-delay:var(--hd,0s); }
+  @keyframes lineUp{ to{ transform:translateY(0); } }
+
+  .hero-fade{ opacity:0; transform:translateY(24px); }
+  .hero-loaded .hero-fade{ animation:fadeUp 1s cubic-bezier(.22,1,.36,1) forwards; animation-delay:var(--hd,0s); }
+  @keyframes fadeUp{ to{ opacity:1; transform:translateY(0);} }
+
+  @keyframes floaty{ 0%,100%{ transform:translateY(0) rotate(var(--rot,0deg)); } 50%{ transform:translateY(-14px) rotate(var(--rot,0deg)); } }
+  .floaty{ animation:floaty 6s ease-in-out infinite; }
+  .floaty-slow{ animation:floaty 9s ease-in-out infinite; }
+
+  .shimmer{
+    background:linear-gradient(110deg,var(--gold) 20%,#fff0c9 40%,var(--gold) 60%);
+    background-size:220% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shine 5s linear infinite;
+  }
+  @keyframes shine{ to{ background-position:-220% 0; } }
+
+  .marquee-track{ display:flex; width:max-content; animation:marquee 30s linear infinite; }
+  .marquee:hover .marquee-track{ animation-play-state:paused; }
+  @keyframes marquee{ to{ transform:translateX(-50%); } }
+
+  .btn-gold{
+    background:linear-gradient(120deg,#b07f22,var(--gold));
+    color:#191204; font-weight:600;
+    transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s;
+    box-shadow:0 8px 30px -10px rgba(214,165,63,.55);
+  }
+  .btn-gold:hover{ transform:translateY(-3px); box-shadow:0 16px 40px -10px rgba(214,165,63,.7); }
+  .btn-ghost{ border:1px solid rgba(214,165,63,.4); color:var(--gold2); transition:all .35s cubic-bezier(.22,1,.36,1); }
+  .btn-ghost:hover{ background:rgba(214,165,63,.1); transform:translateY(-3px); }
+
+  .glass{ background:rgba(26,21,16,.7); backdrop-filter:blur(14px); border:1px solid var(--line); }
+  .lift{ transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s, border-color .5s; }
+  .lift:hover{ transform:translateY(-8px); box-shadow:0 30px 60px -25px rgba(0,0,0,.8); border-color:rgba(214,165,63,.45); }
+
+  .img-zoom{ overflow:hidden; }
+  .img-zoom img{ transition:transform 1.2s cubic-bezier(.22,1,.36,1), filter 1.2s; }
+  .img-zoom:hover img{ transform:scale(1.08); }
+
+  .link-underline{ position:relative; }
+  .link-underline::after{ content:""; position:absolute; left:0; bottom:-4px; width:100%; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:right; transition:transform .45s cubic-bezier(.22,1,.36,1); }
+  .link-underline:hover::after, .link-underline.active::after{ transform:scaleX(1); transform-origin:left; }
+  .link-underline.active{ color:var(--gold2); }
+
+  .menu-card{ animation:cardIn .7s cubic-bezier(.22,1,.36,1) both; animation-delay:var(--cd,0s); }
+  @keyframes cardIn{ from{ opacity:0; transform:translateY(28px) scale(.97); } to{ opacity:1; transform:translateY(0) scale(1);} }
+  .badge{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; padding:3px 9px; border-radius:99px; font-weight:600; }
+
+  .field{
+    background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
+    color:var(--cream); border-radius:12px; padding:13px 16px; width:100%;
+    transition:border-color .3s, background .3s, box-shadow .3s; font-weight:300;
+  }
+  .field:focus{ outline:none; border-color:var(--gold); background:rgba(214,165,63,.05); box-shadow:0 0 0 4px rgba(214,165,63,.08); }
+  .field::placeholder{ color:#6e6250; }
+  select.field option{ background:#161310; color:var(--cream); }
+  input[type="date"].field{ color-scheme:dark; }
+
+  .backdrop{ position:fixed; inset:0; background:rgba(5,4,2,.7); backdrop-filter:blur(6px); opacity:0; pointer-events:none; transition:opacity .45s ease; z-index:60; }
+  .backdrop.show{ opacity:1; pointer-events:auto; }
+  #cartDrawer{ transform:translateX(105%); transition:transform .6s cubic-bezier(.22,1,.36,1); }
+  #cartDrawer.open{ transform:translateX(0); }
+
+  @keyframes pingRing{ 0%{ transform:scale(1); opacity:.7; } 100%{ transform:scale(1.7); opacity:0; } }
+
+  .g-item{ animation:cardIn .7s cubic-bezier(.22,1,.36,1) both; animation-delay:var(--cd,0s); }
+
+  .faq-body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .5s cubic-bezier(.22,1,.36,1); }
+  .faq-item.open .faq-body{ grid-template-rows:1fr; }
+  .faq-icon{ transition:transform .4s; }
+  .faq-item.open .faq-icon{ transform:rotate(45deg); }
+
+  #revProg{ transition:width .2s linear; }
+
+  .dark-map{ filter:invert(.92) hue-rotate(185deg) contrast(.95) saturate(.6); }
+
+  #toastWrap{ position:fixed; bottom:96px; left:50%; transform:translateX(-50%); z-index:90; display:flex; flex-direction:column; gap:10px; align-items:center; pointer-events:none; }
+  .toast{ animation:toastIn .45s cubic-bezier(.22,1,.36,1); }
+  @keyframes toastIn{ from{ opacity:0; transform:translateY(20px) scale(.95);} to{ opacity:1; transform:translateY(0) scale(1);} }
+  .toast.out{ transition:opacity .4s, transform .4s; opacity:0; transform:translateY(10px); }
+
+  .check-circle{ stroke-dasharray:166; stroke-dashoffset:166; animation:drawStroke .7s cubic-bezier(.65,0,.45,1) forwards .1s; }
+  .check-mark{ stroke-dasharray:60; stroke-dashoffset:60; animation:drawStroke .5s cubic-bezier(.65,0,.45,1) forwards .7s; }
+  @keyframes drawStroke{ to{ stroke-dashoffset:0; } }
+
+  .tab-pill{ transition:all .35s cubic-bezier(.22,1,.36,1); }
+  .tab-pill.active{ background:linear-gradient(120deg,#b07f22,var(--gold)); color:#191204; border-color:transparent; font-weight:600; }
+
+  .stat-card::before{ content:""; position:absolute; inset:0; border-radius:inherit; padding:1px; background:linear-gradient(140deg,rgba(214,165,63,.5),transparent 40%,transparent 60%,rgba(214,165,63,.35)); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+
+  #mobileMenu{ clip-path:circle(0% at calc(100% - 44px) 44px); transition:clip-path .8s cubic-bezier(.22,1,.36,1); }
+  #mobileMenu.open{ clip-path:circle(150% at calc(100% - 44px) 44px); }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+
+<body class="grain antialiased">
+
+<!-- ===================== PRELOADER ===================== -->
+<div id="preloader">
+  <div class="serif text-4xl sm:text-5xl tracking-wide text-center" aria-hidden="true">
+    <span class="line-mask"><span class="pl-letter serif italic" style="animation-delay:.05s">Usmania</span></span>
+    <span class="line-mask"><span class="pl-letter shimmer font-semibold" style="animation-delay:.25s">QUETTA</span></span>
+  </div>
+  <div class="pl-bar"><span id="plFill"></span></div>
+  <p class="text-xs tracking-[.35em] uppercase text-[var(--muted)]">Roasting the sajji</p>
+</div>
+
+<!-- ===================== SCROLL PROGRESS ===================== -->
+<div id="progressbar"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-transform duration-500">
+  <nav class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="glass mt-4 rounded-2xl px-5 sm:px-7 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2.5 group">
+        <span class="w-9 h-9 rounded-full grid place-items-center border border-[var(--gold)]/50 bg-[var(--gold)]/10 group-hover:rotate-12 transition-transform duration-500">
+          <i data-lucide="flame" class="w-4.5 h-4.5 text-[var(--gold)]"></i>
+        </span>
+        <span class="serif text-xl leading-none">
+          <span class="italic font-light">Usmania</span> <span class="font-semibold text-[var(--gold2)]">QUETTA</span>
+        </span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-7 text-sm tracking-wide">
+        <a href="#about" class="nav-link link-underline text-[var(--muted)] hover:text-[var(--cream)] transition-colors">About</a>
+        <a href="#menu" class="nav-link link-underline text-[var(--muted)] hover:text-[var(--cream)] transition-colors">Menu</a>
+        <a href="#delivery" class="nav-link link-underline text-[var(--muted)] hover:text-[var(--cream)] transition-colors">Delivery</a>
+        <a href="#gallery" class="nav-link link-underline text-[var(--muted)] hover:text-[var(--cream)] transition-colors">Gallery</a>
+        <a href="#reviews" class="nav-link link-underline text-[var(--muted)] hover:text-[var(--cream)] transition-colors">Reviews</a>
+        <a href="#branches" class="nav-link link-underline text-[var(--muted)] hover:text-[var(--cream)] transition-colors">Branches</a>
+        <a href="#contact" class="nav-link link-underline text-[var(--muted)] hover:text-[var(--cream)] transition-colors">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="cartBtn" class="relative w-10 h-10 rounded-full grid place-items-center border border-white/10 hover:border-[var(--gold)]/60 hover:bg-[var(--gold)]/10 transition-all" aria-label="Open order">
+          <i data-lucide="shopping-bag" class="w-4.5 h-4.5 text-[var(--cream)]"></i>
+          <span id="cartCount" class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[var(--gold)] text-[#191204] text-[11px] font-bold grid place-items-center hidden">0</span>
+        </button>
+        <a href="#reserve" class="hidden sm:inline-flex btn-gold rounded-full px-5 py-2.5 text-sm items-center gap-2">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i> Reserve
+        </a>
+        <button id="burger" class="lg:hidden w-10 h-10 rounded-full grid place-items-center border border-white/10" aria-label="Open menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ===================== MOBILE MENU ===================== -->
+<div id="mobileMenu" class="fixed inset-0 z-[70] bg-[#0d0b07]/98 backdrop-blur-xl flex flex-col justify-center px-8">
+  <button id="closeMobile" class="absolute top-6 right-6 w-11 h-11 rounded-full border border-white/15 grid place-items-center" aria-label="Close menu">
+    <i data-lucide="x" class="w-5 h-5"></i>
+  </button>
+  <nav class="flex flex-col gap-2 serif text-4xl">
+    <a href="#home" class="mob-link py-2 hover:text-[var(--gold2)] transition-colors">Home</a>
+    <a href="#about" class="mob-link py-2 hover:text-[var(--gold2)] transition-colors">About</a>
+    <a href="#menu" class="mob-link py-2 hover:text-[var(--gold2)] transition-colors">Menu</a>
+    <a href="#delivery" class="mob-link py-2 hover:text-[var(--gold2)] transition-colors">Delivery</a>
+    <a href="#gallery" class="mob-link py-2 hover:text-[var(--gold2)] transition-colors">Gallery</a>
+    <a href="#reviews" class="mob-link py-2 hover:text-[var(--gold2)] transition-colors">Reviews</a>
+    <a href="#branches" class="mob-link py-2 hover:text-[var(--gold2)] transition-colors">Branches</a>
+    <a href="#reserve" class="mob-link py-2 italic text-[var(--gold2)]">Reserve a Table</a>
+  </nav>
+  <div class="mt-10 flex gap-4">
+    <a id="mobWa" href="#" target="_blank" class="w-11 h-11 rounded-full border border-white/15 grid place-items-center hover:bg-[#25D366]/20 transition-colors"><i data-lucide="message-circle" class="w-5 h-5 text-[#25D366]"></i></a>
+    <a id="mobMail" href="#" class="w-11 h-11 rounded-full border border-white/15 grid place-items-center hover:bg-[var(--gold)]/15 transition-colors"><i data-lucide="mail" class="w-5 h-5 text-[var(--gold2)]"></i></a>
+    <a id="mobCall" href="#" class="w-11 h-11 rounded-full border border-white/15 grid place-items-center hover:bg-[var(--gold)]/15 transition-colors"><i data-lucide="phone" class="w-5 h-5 text-[var(--gold2)]"></i></a>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-32 pb-20">
+  <div class="absolute -top-40 -left-40 w-[34rem] h-[34rem] rounded-full bg-[var(--gold)]/10 blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full bg-[#7a2e12]/15 blur-[110px] pointer-events-none"></div>
+  <div class="absolute inset-0 opacity-[.06] pointer-events-none select-none flex items-center" aria-hidden="true">
+    <span class="serif font-semibold whitespace-nowrap text-[24vw] leading-none text-[var(--gold)]">QUETTA</span>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center w-full">
+    <div>
+      <div class="hero-fade inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs tracking-[.25em] uppercase text-[var(--gold2)]" style="--hd:.15s">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--gold)] animate-pulse"></span>
+        Old Pishin Stop · Khojak Road
+      </div>
+
+      <h1 class="serif mt-6 text-[clamp(3rem,9vw,6.8rem)] leading-[.95]">
+        <span class="line-mask"><span style="--hd:.25s">Balochi <em class="italic font-light text-[var(--gold2)]">sajji</em>,</span></span>
+        <span class="line-mask"><span style="--hd:.38s">ribs off the <em class="italic font-light">coals</em>,</span></span>
+        <span class="line-mask"><span style="--hd:.51s" class="shimmer font-medium">Quetta on a plate.</span></span>
+      </h1>
+
+      <p class="hero-fade mt-7 max-w-md text-[var(--muted)] text-base sm:text-lg leading-relaxed" style="--hd:.7s">
+        Kabuli pulao, bubbling karahis, the famous Special Soup and an evening buffet the whole city talks about — at Old Pishin Stop, Model Town. Open daily 12 PM to midnight.
+      </p>
+
+      <div class="hero-fade mt-9 flex flex-wrap gap-4" style="--hd:.85s">
+        <a href="#reserve" class="btn-gold rounded-full px-7 py-3.5 inline-flex items-center gap-2 text-sm">
+          <i data-lucide="calendar-heart" class="w-4.5 h-4.5"></i> Book a Table
+        </a>
+        <a href="#menu" class="btn-ghost rounded-full px-7 py-3.5 inline-flex items-center gap-2 text-sm">
+          <i data-lucide="utensils-crossed" class="w-4.5 h-4.5"></i> Explore Menu
+        </a>
+      </div>
+
+      <div class="hero-fade mt-10 flex items-center gap-5" style="--hd:1s">
+        <div class="flex -space-x-3">
+          <span class="w-10 h-10 rounded-full grid place-items-center text-xs font-bold bg-[#3b2c14] text-[var(--gold2)] border-2 border-[var(--bg)]">IK</span>
+          <span class="w-10 h-10 rounded-full grid place-items-center text-xs font-bold bg-[#23371f] text-[#9fe0b8] border-2 border-[var(--bg)]">FB</span>
+          <span class="w-10 h-10 rounded-full grid place-items-center text-xs font-bold bg-[#3a2033] text-[#e3a9d3] border-2 border-[var(--bg)]">MA</span>
+          <span class="w-10 h-10 rounded-full grid place-items-center text-xs font-bold bg-[#1f2c3b] text-[#9cc4e8] border-2 border-[var(--bg)]">1.9k</span>
+        </div>
+        <div class="text-sm">
+          <div class="flex items-center gap-1 text-[var(--gold2)]">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 opacity-30"></i>
+            <span class="ml-1 font-semibold text-[var(--cream)]" data-counter-dec="4.1">0</span>
+          </div>
+          <p class="text-[var(--muted)]">Google · recommended by 1,900+ on Facebook</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collage -->
+    <div class="relative h-[30rem] sm:h-[36rem] hidden md:block" id="heroCollage">
+      <div class="hero-fade absolute right-4 top-0 w-64 sm:w-72 rounded-3xl img-zoom shadow-2xl floaty" style="--hd:.5s; --rot:4deg;">
+        <img src="https://images.pexels.com/photos/24186393/pexels-photo-24186393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Slow-roasted sajji on a dark platter" class="rounded-3xl w-full h-80 object-cover" data-depth="18">
+        <div class="absolute bottom-3 left-3 glass rounded-full px-3 py-1.5 text-xs">Sajji, roasted low &amp; slow</div>
+      </div>
+      <div class="hero-fade absolute left-0 top-24 w-52 sm:w-60 rounded-3xl img-zoom shadow-2xl floaty-slow" style="--hd:.65s; --rot:-5deg;">
+        <img src="https://images.pexels.com/photos/39400851/pexels-photo-39400851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Ribs and kababs smoking over charcoal" class="rounded-3xl w-full h-72 object-cover" data-depth="30">
+        <div class="absolute bottom-3 left-3 glass rounded-full px-3 py-1.5 text-xs">Tandoori ribs on coals</div>
+      </div>
+      <div class="hero-fade absolute right-24 bottom-0 w-44 sm:w-52 rounded-3xl img-zoom shadow-2xl floaty" style="--hd:.8s; --rot:3deg; animation-delay:1.2s;">
+        <img src="https://images.pexels.com/photos/32986475/pexels-photo-32986475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Kabuli pulao on an ornate plate" class="rounded-3xl w-full h-56 object-cover" data-depth="42">
+        <div class="absolute bottom-3 left-3 glass rounded-full px-3 py-1.5 text-xs">Kabuli pulao nights</div>
+      </div>
+      <div class="hero-fade absolute left-6 bottom-10 glass rounded-2xl px-5 py-4 floaty-slow" style="--hd:.95s; animation-delay:.8s;">
+        <p class="text-[10px] uppercase tracking-[.25em] text-[var(--muted)]">Quetta's favorite bowl</p>
+        <p class="serif italic text-lg text-[var(--gold2)] mt-1">Usmania Special Soup</p>
+        <p class="text-sm font-semibold mt-0.5">Rs 600</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="hero-fade absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--muted)] text-[10px] tracking-[.35em] uppercase" style="--hd:1.2s">
+    Scroll
+    <span class="w-px h-10 bg-gradient-to-b from-[var(--gold)] to-transparent"></span>
+  </a>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee relative border-y border-[var(--line)] bg-[var(--bg2)] py-4 overflow-hidden">
+  <div class="marquee-track gap-10 serif italic text-lg sm:text-xl text-[var(--gold2)]/85">
+    <div class="flex items-center gap-10 shrink-0" id="mq1"></div>
+    <div class="flex items-center gap-10 shrink-0" id="mq2"></div>
+  </div>
+</div>
+
+<!-- ===================== STATS ===================== -->
+<section class="py-20">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" id="stats"></div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="py-24 relative overflow-hidden">
+  <div class="absolute top-1/3 -right-40 w-[26rem] h-[26rem] rounded-full bg-[var(--gold)]/8 blur-[100px] pointer-events-none"></div>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+    <div class="relative">
+      <div class="reveal-scale img-zoom rounded-[2rem]">
+        <img src="https://images.pexels.com/photos/20184687/pexels-photo-20184687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Usmania dining hall at Pishin Stop" class="rounded-[2rem] w-full h-[30rem] object-cover">
+      </div>
+      <div class="reveal absolute -bottom-8 -right-2 sm:right-8 w-44 sm:w-56 rounded-3xl img-zoom shadow-2xl" style="--d:.2s">
+        <img src="https://images.pexels.com/photos/8856502/pexels-photo-8856502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Family dawat table setting" class="rounded-3xl w-full h-52 sm:h-64 object-cover border-4 border-[var(--bg)]">
+      </div>
+      <div class="reveal absolute -top-5 -left-2 sm:left-6 glass rounded-2xl px-5 py-4" style="--d:.35s">
+        <p class="serif text-3xl text-[var(--gold2)]">#2<span class="text-lg"> of 25</span></p>
+        <p class="text-xs text-[var(--muted)]">restaurants in Quetta · Tripadvisor</p>
+      </div>
+    </div>
+
+    <div>
+      <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)] flex items-center gap-3"><span class="w-8 h-px bg-[var(--gold)]"></span> Our Story</p>
+      <h2 class="reveal serif text-4xl sm:text-5xl lg:text-6xl mt-5 leading-tight" style="--d:.1s">
+        The glow on Khojak Road everyone <em class="italic text-[var(--gold2)] font-light">drives toward</em>.
+      </h2>
+      <p class="reveal mt-6 text-[var(--muted)] leading-relaxed" style="--d:.2s">
+        Anyone who has passed Old Pishin Stop after sunset knows it — the coals, the crowd, the smell of roasting sajji drifting across Khojak Road. Usmania is where Law College debates end, family dawats begin, and half of Quetta's celebrations eventually land.
+      </p>
+      <p class="reveal mt-4 text-[var(--muted)] leading-relaxed" style="--d:.3s">
+        The sajji roasts the Balochi way — low, patient, rock-salt honest. The ribs come off the tandoor crackling. And the Special Soup has been warming Quetta winters for years. From M.A. Jinnah Road to Model Town, one promise stays: full plates, fair prices, food that arrives hot and fast.
+      </p>
+
+      <div class="reveal grid grid-cols-2 gap-4 mt-8" style="--d:.4s">
+        <div class="glass rounded-2xl p-5 lift">
+          <i data-lucide="flame-kindling" class="w-6 h-6 text-[var(--gold)]"></i>
+          <p class="font-medium mt-3">Live Tandoor &amp; BBQ</p>
+          <p class="text-xs text-[var(--muted)] mt-1">Ribs, kababs and naans pulled fresh all day.</p>
+        </div>
+        <div class="glass rounded-2xl p-5 lift">
+          <i data-lucide="badge-check" class="w-6 h-6 text-[var(--green)]"></i>
+          <p class="font-medium mt-3">100% Halal, Always</p>
+          <p class="text-xs text-[var(--muted)] mt-1">Fresh meat sourced daily, handled with care.</p>
+        </div>
+        <div class="glass rounded-2xl p-5 lift">
+          <i data-lucide="users-round" class="w-6 h-6 text-[var(--gold)]"></i>
+          <p class="font-medium mt-3">Family Halls</p>
+          <p class="text-xs text-[var(--muted)] mt-1">Separate family seating at Model Town &amp; Jinnah Road.</p>
+        </div>
+        <div class="glass rounded-2xl p-5 lift">
+          <i data-lucide="bike" class="w-6 h-6 text-[var(--gold)]"></i>
+          <p class="font-medium mt-3">Quetta Home Delivery</p>
+          <p class="text-xs text-[var(--muted)] mt-1">Call (081) 2829 629 — hot at your door fast.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENU ===================== -->
+<section id="menu" class="py-24 bg-[var(--bg2)] border-y border-[var(--line)] relative overflow-hidden">
+  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[40rem] h-[20rem] rounded-full bg-[var(--gold)]/6 blur-[100px] pointer-events-none"></div>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)] flex items-center gap-3"><span class="w-8 h-px bg-[var(--gold)]"></span> The Menu</p>
+        <h2 class="reveal serif text-4xl sm:text-5xl lg:text-6xl mt-5" style="--d:.1s">Big plates, <em class="italic text-[var(--gold2)] font-light">Balochi heart</em>,<br>Quetta <em class="italic text-[var(--gold2)] font-light">prices</em>.</h2>
+      </div>
+      <div class="reveal flex items-center gap-3" style="--d:.2s">
+        <button id="waOrderTop" class="btn-ghost rounded-full px-5 py-3 text-sm inline-flex items-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i> Order on WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div id="menuTabs" class="reveal mt-10 flex gap-3 overflow-x-auto pb-2" style="--d:.25s; scrollbar-width:none;"></div>
+
+    <!-- Grid -->
+    <div id="menuGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+    <p class="reveal mt-8 text-center text-sm text-[var(--muted)]">Prices may vary slightly by branch. Evening buffet at Pishin Stop, 7 – 11 PM. <a href="#" id="fullMenuWa" class="text-[var(--gold2)] link-underline">Get the full menu on WhatsApp</a></p>
+  </div>
+</section>
+
+<!-- ===================== DELIVERY ===================== -->
+<section id="delivery" class="py-20">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal rounded-[2.5rem] relative overflow-hidden border border-[var(--gold)]/25 bg-gradient-to-br from-[#1c1509] to-[#100d07] px-7 py-12 sm:px-14 grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
+      <div class="absolute -top-24 -left-24 w-[24rem] h-[24rem] rounded-full bg-[var(--gold)]/12 blur-[90px] pointer-events-none"></div>
+      <div>
+        <p class="text-xs tracking-[.35em] uppercase text-[var(--gold)] flex items-center gap-3"><i data-lucide="bike" class="w-4 h-4"></i> Home Delivery</p>
+        <h3 class="serif text-3xl sm:text-5xl mt-4 leading-tight">Craving at home? <em class="italic text-[var(--gold2)] font-light">We ride across Quetta.</em></h3>
+        <p class="text-[var(--muted)] mt-4 max-w-lg">Add dishes to your order right here on the site, check out on WhatsApp, and dinner leaves the kitchen in minutes. Cash on delivery or bank transfer.</p>
+        <div class="flex flex-wrap gap-3 mt-7">
+          <button onclick="document.getElementById('cartBtn').click()" class="btn-gold rounded-full px-6 py-3 text-sm inline-flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Start an Order</button>
+          <a id="delWa" href="#" target="_blank" class="btn-ghost rounded-full px-6 py-3 text-sm inline-flex items-center gap-2"><i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i> WhatsApp Us</a>
+          <a id="delCall" href="#" class="btn-ghost rounded-full px-6 py-3 text-sm inline-flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> (081) 2829 629</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 lg:grid-cols-1 gap-4">
+        <div class="glass rounded-2xl p-5 text-center lg:text-left lift">
+          <p class="serif text-3xl text-[var(--gold2)]">~45<span class="text-base"> min</span></p>
+          <p class="text-xs text-[var(--muted)] mt-1">average delivery in Quetta</p>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center lg:text-left lift">
+          <p class="serif text-3xl text-[var(--gold2)]">Rs 100</p>
+          <p class="text-xs text-[var(--muted)] mt-1">flat delivery fee, city-wide</p>
+        </div>
+        <div class="glass rounded-2xl p-5 text-center lg:text-left lift">
+          <p class="serif text-3xl text-[var(--gold2)]">12<span class="text-base"> hrs</span></p>
+          <p class="text-xs text-[var(--muted)] mt-1">kitchen open daily, noon to midnight</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOUSE LEGENDS ===================== -->
+<section class="py-10 pb-24">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="flex items-end justify-between gap-6 mb-10">
+      <div>
+        <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)] flex items-center gap-3"><span class="w-8 h-px bg-[var(--gold)]"></span> House Legends</p>
+        <h2 class="reveal serif text-4xl sm:text-5xl mt-5" style="--d:.1s">The plates Quetta <em class="italic text-[var(--gold2)] font-light">keeps ordering</em></h2>
+      </div>
+      <div class="reveal hidden sm:flex gap-2" style="--d:.2s">
+        <button id="picksPrev" class="w-11 h-11 rounded-full border border-white/15 grid place-items-center hover:border-[var(--gold)]/60 transition-all" aria-label="Previous"><i data-lucide="arrow-left" class="w-4.5 h-4.5"></i></button>
+        <button id="picksNext" class="w-11 h-11 rounded-full border border-white/15 grid place-items-center hover:border-[var(--gold)]/60 transition-all" aria-label="Next"><i data-lucide="arrow-right" class="w-4.5 h-4.5"></i></button>
+      </div>
+    </div>
+    <div id="picksTrack" class="reveal flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4" style="--d:.25s; scrollbar-width:none;"></div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section id="gallery" class="py-24 bg-[var(--bg2)] border-y border-[var(--line)]">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)]">Gallery</p>
+      <h2 class="reveal serif text-4xl sm:text-5xl lg:text-6xl mt-5" style="--d:.1s">Evenings at <em class="italic text-[var(--gold2)] font-light">Pishin Stop</em></h2>
+      <p class="reveal mt-5 text-[var(--muted)]" style="--d:.2s">Coals at full glow, halls full of families, and plates that never return full. Tap any frame to view it full-screen.</p>
+    </div>
+    <div id="galleryTabs" class="reveal mt-10 flex flex-wrap justify-center gap-3" style="--d:.25s"></div>
+    <div id="galleryGrid" class="mt-10 columns-2 md:columns-3 gap-4"></div>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS ===================== -->
+<section id="reviews" class="py-24 relative overflow-hidden">
+  <div class="absolute top-0 left-1/3 w-[24rem] h-[24rem] rounded-full bg-[var(--gold)]/7 blur-[110px] pointer-events-none"></div>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-[1fr_1.6fr] gap-12 items-center">
+    <div>
+      <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)] flex items-center gap-3"><span class="w-8 h-px bg-[var(--gold)]"></span> Reviews</p>
+      <h2 class="reveal serif text-4xl sm:text-5xl lg:text-6xl mt-5 leading-tight" style="--d:.1s">Quetta keeps <em class="italic text-[var(--gold2)] font-light">talking</em></h2>
+      <div class="reveal glass rounded-3xl p-7 mt-9 stat-card relative" style="--d:.2s">
+        <div class="flex items-end gap-3">
+          <span class="serif text-6xl text-[var(--gold2)]" id="avgRating">0</span>
+          <div class="pb-2">
+            <div class="flex gap-0.5 text-[var(--gold2)]" id="avgStars"></div>
+            <p class="text-xs text-[var(--muted)] mt-1" id="avgCount"></p>
+          </div>
+        </div>
+        <div class="mt-5 space-y-2" id="ratingBars"></div>
+        <a id="gReviewLink" href="#" target="_blank" class="mt-6 btn-ghost rounded-full px-5 py-2.5 text-xs inline-flex items-center gap-2">
+          <i data-lucide="pen-line" class="w-3.5 h-3.5"></i> Write a Google review
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal" style="--d:.25s">
+      <div class="glass rounded-[2rem] p-1.5 relative overflow-hidden">
+        <div id="revTrack" class="flex transition-transform duration-700" style="transition-timing-function:cubic-bezier(.22,1,.36,1)"></div>
+        <div class="absolute bottom-0 left-0 h-0.5 bg-[var(--gold)]" id="revProg" style="width:0%"></div>
+      </div>
+      <div class="flex items-center justify-between mt-5">
+        <div id="revDots" class="flex gap-2"></div>
+        <div class="flex gap-2">
+          <button id="revPrev" class="w-11 h-11 rounded-full border border-white/15 grid place-items-center hover:border-[var(--gold)]/60 transition-all" aria-label="Previous review"><i data-lucide="arrow-left" class="w-4.5 h-4.5"></i></button>
+          <button id="revNext" class="w-11 h-11 rounded-full border border-white/15 grid place-items-center hover:border-[var(--gold)]/60 transition-all" aria-label="Next review"><i data-lucide="arrow-right" class="w-4.5 h-4.5"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESERVATION ===================== -->
+<section id="reserve" class="py-24 bg-[var(--bg2)] border-y border-[var(--line)] relative overflow-hidden">
+  <div class="absolute -bottom-40 -left-40 w-[30rem] h-[30rem] rounded-full bg-[#7a2e12]/12 blur-[120px] pointer-events-none"></div>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-[1fr_1.4fr] gap-14 items-center">
+    <div>
+      <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)] flex items-center gap-3"><span class="w-8 h-px bg-[var(--gold)]"></span> Reservations</p>
+      <h2 class="reveal serif text-4xl sm:text-5xl lg:text-6xl mt-5 leading-tight" style="--d:.1s">Skip the weekend <em class="italic text-[var(--gold2)] font-light">queue</em></h2>
+      <p class="reveal mt-6 text-[var(--muted)] leading-relaxed max-w-md" style="--d:.2s">Buffet evenings and Sundays get properly packed. Book ahead — dawats, results parties and office dinners all fit in the family hall. Pre-order your sajji in the note so it roasts on time.</p>
+
+      <div class="reveal glass rounded-2xl p-5 mt-8 flex items-center gap-4" style="--d:.3s">
+        <span id="openDot" class="w-3 h-3 rounded-full shrink-0 bg-[var(--green)]"></span>
+        <div>
+          <p id="openStatus" class="font-medium text-sm">Checking hours…</p>
+          <p class="text-xs text-[var(--muted)]" id="openHours"></p>
+        </div>
+      </div>
+
+      <div class="reveal mt-6 flex flex-col gap-3 text-sm" style="--d:.4s">
+        <a id="resCall" href="#" class="flex items-center gap-3 text-[var(--muted)] hover:text-[var(--cream)] transition-colors"><span class="w-9 h-9 rounded-full border border-white/10 grid place-items-center"><i data-lucide="phone" class="w-4 h-4 text-[var(--gold)]"></i></span> <span id="resCallText"></span></a>
+        <a id="resWa" href="#" target="_blank" class="flex items-center gap-3 text-[var(--muted)] hover:text-[var(--cream)] transition-colors"><span class="w-9 h-9 rounded-full border border-white/10 grid place-items-center"><i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i></span> WhatsApp 0333 124 5870</a>
+      </div>
+    </div>
+
+    <form id="resForm" class="reveal glass rounded-[2rem] p-7 sm:p-10 relative" style="--d:.25s" novalidate>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Full name *</label>
+          <input type="text" id="rName" class="field mt-2" placeholder="Your name" required>
+        </div>
+        <div>
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Phone *</label>
+          <input type="tel" id="rPhone" class="field mt-2" placeholder="03xx-xxxxxxx" required>
+        </div>
+        <div>
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Date *</label>
+          <input type="date" id="rDate" class="field mt-2" required>
+        </div>
+        <div>
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Time *</label>
+          <select id="rTime" class="field mt-2" required>
+            <option value="">Select time</option>
+            <option>12:30 PM</option><option>1:30 PM</option><option>2:30 PM</option>
+            <option>6:30 PM</option><option>7:30 PM</option><option>8:30 PM</option><option>9:30 PM</option><option>10:30 PM</option><option>11:00 PM</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Guests *</label>
+          <select id="rGuests" class="field mt-2" required>
+            <option value="">How many?</option>
+            <option>2 guests</option><option>4 guests</option><option>6 guests</option>
+            <option>8 guests</option><option>10 guests</option><option>15+ guests (family hall / dawat)</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Branch *</label>
+          <select id="rBranch" class="field mt-2" required></select>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Occasion (optional)</label>
+          <select id="rOccasion" class="field mt-2">
+            <option>Just dinner</option><option>Buffet evening</option><option>Birthday</option><option>Family dawat</option><option>University hangout</option><option>Business meal</option>
+          </select>
+        </div>
+        <div class="sm:col-span-2">
+          <label class="text-xs tracking-widest uppercase text-[var(--muted)]">Special request</label>
+          <textarea id="rNote" rows="3" class="field mt-2 resize-none" placeholder="Family hall, sajji pre-order, leg roast for the table…"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn-gold w-full rounded-full py-4 mt-6 text-sm font-semibold inline-flex items-center justify-center gap-2">
+        <i data-lucide="calendar-check-2" class="w-4.5 h-4.5"></i> Confirm Reservation
+      </button>
+      <p class="text-center text-[11px] text-[var(--muted)] mt-3">Free cancellation up to 2 hours before. Roasts need time — note them early.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== BRANCHES + MAP ===================== -->
+<section id="branches" class="py-24">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)]">Find Us</p>
+      <h2 class="reveal serif text-4xl sm:text-5xl lg:text-6xl mt-5" style="--d:.1s">Three roofs over Quetta, <em class="italic text-[var(--gold2)] font-light">one fire</em></h2>
+    </div>
+
+    <div id="branchGrid" class="grid md:grid-cols-3 gap-5"></div>
+
+    <div class="reveal mt-10 rounded-[2rem] overflow-hidden border border-[var(--line)] relative" style="--d:.2s">
+      <iframe id="gmap" title="Usmania Restaurant Quetta location map" class="dark-map w-full h-[380px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="about:blank"></iframe>
+      <a id="mapOverlayBtn" href="#" target="_blank" class="absolute bottom-4 left-4 btn-gold rounded-full px-5 py-2.5 text-xs inline-flex items-center gap-2 shadow-xl">
+        <i data-lucide="navigation" class="w-4 h-4"></i> Open in Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="py-24 bg-[var(--bg2)] border-t border-[var(--line)] relative overflow-hidden">
+  <div class="absolute -top-24 right-0 w-[22rem] h-[22rem] rounded-full bg-[var(--gold)]/8 blur-[100px] pointer-events-none"></div>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-14">
+      <div>
+        <p class="reveal text-xs tracking-[.35em] uppercase text-[var(--gold)] flex items-center gap-3"><span class="w-8 h-px bg-[var(--gold)]"></span> Contact Us</p>
+        <h2 class="reveal serif text-4xl sm:text-5xl lg:text-6xl mt-5 leading-tight" style="--d:.1s">Call, WhatsApp, <em class="italic text-[var(--gold2)] font-light">or just walk in</em></h2>
+        <p class="reveal mt-6 text-[var(--muted)] max-w-md" style="--d:.2s">Buffet bookings, sajji pre-orders, catering for dawats or feedback from last night — someone from the house always replies fast.</p>
+
+        <div class="mt-9 space-y-4">
+          <a id="ctWa" href="#" target="_blank" class="reveal glass rounded-2xl p-5 flex items-center gap-4 lift" style="--d:.25s">
+            <span class="w-12 h-12 rounded-2xl bg-[#25D366]/15 grid place-items-center shrink-0"><i data-lucide="message-circle" class="w-5.5 h-5.5 text-[#25D366]"></i></span>
+            <div><p class="font-medium">WhatsApp</p><p class="text-sm text-[var(--muted)]" id="ctWaText"></p></div>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto text-[var(--muted)]"></i>
+          </a>
+          <a id="ctMail" href="#" class="reveal glass rounded-2xl p-5 flex items-center gap-4 lift" style="--d:.35s">
+            <span class="w-12 h-12 rounded-2xl bg-[var(--gold)]/15 grid place-items-center shrink-0"><i data-lucide="mail" class="w-5.5 h-5.5 text-[var(--gold2)]"></i></span>
+            <div><p class="font-medium">Email</p><p class="text-sm text-[var(--muted)]" id="ctMailText"></p></div>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto text-[var(--muted)]"></i>
+          </a>
+          <a id="ctCall" href="#" class="reveal glass rounded-2xl p-5 flex items-center gap-4 lift" style="--d:.45s">
+            <span class="w-12 h-12 rounded-2xl bg-[var(--gold)]/15 grid place-items-center shrink-0"><i data-lucide="phone" class="w-5.5 h-5.5 text-[var(--gold2)]"></i></span>
+            <div><p class="font-medium">Call / Reservations</p><p class="text-sm text-[var(--muted)]" id="ctCallText"></p></div>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-auto text-[var(--muted)]"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <form id="ctForm" class="reveal glass rounded-[2rem] p-7 sm:p-9" style="--d:.3s" novalidate>
+          <p class="serif text-2xl">Send a message</p>
+          <div class="grid sm:grid-cols-2 gap-4 mt-6">
+            <input type="text" id="cName" class="field" placeholder="Your name *" required>
+            <input type="email" id="cEmail" class="field" placeholder="Email address *" required>
+          </div>
+          <select id="cTopic" class="field mt-4">
+            <option>General feedback</option><option>Buffet / dawat booking</option><option>Sajji &amp; roast pre-order</option><option>Home delivery issue</option><option>Catering quote</option>
+          </select>
+          <textarea id="cMsg" rows="4" class="field mt-4 resize-none" placeholder="Your message *" required></textarea>
+          <div class="flex flex-col sm:flex-row gap-3 mt-5">
+            <button type="submit" data-send="wa" class="flex-1 rounded-full py-3.5 text-sm font-semibold bg-[#25D366] text-[#062b16] hover:brightness-110 transition inline-flex items-center justify-center gap-2">
+              <i data-lucide="message-circle" class="w-4.5 h-4.5"></i> Send via WhatsApp
+            </button>
+            <button type="submit" data-send="email" class="btn-ghost flex-1 rounded-full py-3.5 text-sm inline-flex items-center justify-center gap-2">
+              <i data-lucide="mail" class="w-4.5 h-4.5"></i> Send via Email
+            </button>
+          </div>
+        </form>
+
+        <div class="reveal mt-8" style="--d:.4s">
+          <p class="text-xs tracking-[.3em] uppercase text-[var(--muted)] mb-4">Quick answers</p>
+          <div class="space-y-3" id="faqWrap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="py-20">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal rounded-[2.5rem] relative overflow-hidden border border-[var(--gold)]/25 px-7 py-14 sm:px-14 text-center bg-gradient-to-b from-[#1c1509] to-[#100d07]">
+      <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[26rem] h-[16rem] rounded-full bg-[var(--gold)]/15 blur-[90px] pointer-events-none"></div>
+      <i data-lucide="mail-open" class="w-8 h-8 text-[var(--gold2)] mx-auto"></i>
+      <h3 class="serif text-3xl sm:text-5xl mt-5">Buffet nights and <em class="italic text-[var(--gold2)] font-light">sajji deals, first</em></h3>
+      <p class="text-[var(--muted)] mt-4 max-w-xl mx-auto text-sm sm:text-base">One short email a week — evening buffet updates, seasonal specials, Ramadan and Eid menus. No spam, promise.</p>
+      <form id="nlForm" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" novalidate>
+        <input type="email" id="nlEmail" class="field flex-1 !rounded-full !px-6" placeholder="you@email.com" required>
+        <button class="btn-gold rounded-full px-8 py-3.5 text-sm font-semibold inline-flex items-center justify-center gap-2 shrink-0"><i data-lucide="send" class="w-4 h-4"></i> Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="border-t border-[var(--line)] bg-[#080705] pt-16 pb-8">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <a href="#home" class="flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-full grid place-items-center border border-[var(--gold)]/50 bg-[var(--gold)]/10"><i data-lucide="flame" class="w-4.5 h-4.5 text-[var(--gold)]"></i></span>
+          <span class="serif text-xl"><span class="italic font-light">Usmania</span> <span class="font-semibold text-[var(--gold2)]">QUETTA</span></span>
+        </a>
+        <p class="text-sm text-[var(--muted)] mt-5 leading-relaxed">Desi, Balochi BBQ, Chinese and the famous evening buffet — Old Pishin Stop, Khojak Road, Quetta. Dine in, take away, or order home.</p>
+        <div class="flex gap-3 mt-6">
+          <a id="ftFb" href="#" target="_blank" class="w-10 h-10 rounded-full border border-white/10 grid place-items-center hover:border-[var(--gold)]/60 hover:bg-[var(--gold)]/10 transition-all" aria-label="Facebook"><i data-lucide="facebook" class="w-4.5 h-4.5"></i></a>
+          <a id="ftIg" href="#" target="_blank" class="w-10 h-10 rounded-full border border-white/10 grid place-items-center hover:border-[var(--gold)]/60 hover:bg-[var(--gold)]/10 transition-all" aria-label="Instagram"><i data-lucide="instagram" class="w-4.5 h-4.5"></i></a>
+          <a id="ftWa" href="#" target="_blank" class="w-10 h-10 rounded-full border border-white/10 grid place-items-center hover:border-[var(--gold)]/60 hover:bg-[var(--gold)]/10 transition-all" aria-label="WhatsApp"><i data-lucide="message-circle" class="w-4.5 h-4.5"></i></a>
+          <a id="ftTk" href="#" target="_blank" class="w-10 h-10 rounded-full border border-white/10 grid place-items-center hover:border-[var(--gold)]/60 hover:bg-[var(--gold)]/10 transition-all" aria-label="TikTok"><i data-lucide="music-2" class="w-4.5 h-4.5"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="text-sm font-semibold tracking-widest uppercase text-[var(--gold2)]">Explore</p>
+        <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]">
+          <li><a href="#about" class="hover:text-[var(--cream)] transition-colors">Our Story</a></li>
+          <li><a href="#menu" class="hover:text-[var(--cream)] transition-colors">Menu &amp; Prices</a></li>
+          <li><a href="#delivery" class="hover:text-[var(--cream)] transition-colors">Home Delivery</a></li>
+          <li><a href="#gallery" class="hover:text-[var(--cream)] transition-colors">Gallery</a></li>
+          <li><a href="#reviews" class="hover:text-[var(--cream)] transition-colors">Reviews</a></li>
+          <li><a href="#reserve" class="hover:text-[var(--cream)] transition-colors">Reservations</a></li>
+          <li><a href="#branches" class="hover:text-[var(--cream)] transition-colors">Branches</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold tracking-widest uppercase text-[var(--gold2)]">Opening Hours</p>
+        <ul class="mt-5 space-y-3 text-sm text-[var(--muted)]" id="ftHours"></ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold tracking-widest uppercase text-[var(--gold2)]">Model Town — Main Branch</p>
+        <ul class="mt-5 space-y-4 text-sm text-[var(--muted)]">
+          <li class="flex gap-3"><i data-lucide="map-pin" class="w-4.5 h-4.5 text-[var(--gold)] shrink-0"></i><span id="ftAddr"></span></li>
+          <li class="flex gap-3"><i data-lucide="phone" class="w-4.5 h-4.5 text-[var(--gold)] shrink-0"></i><span id="ftPhone"></span></li>
+          <li class="flex gap-3"><i data-lucide="mail" class="w-4.5 h-4.5 text-[var(--gold)] shrink-0"></i><span id="ftMail"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-7 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--muted)]">
+      <p>© <span id="year"></span> <span id="ftName">Usmania Restaurant Quetta</span>. All rights reserved.</p>
+      <p class="flex items-center gap-1.5">Crafted with <i data-lucide="flame" class="w-3.5 h-3.5 text-[var(--gold)]"></i> and Balochi rock salt.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING BUTTONS ===================== -->
+<div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
+  <button id="toTop" class="w-11 h-11 rounded-full glass grid place-items-center opacity-0 pointer-events-none transition-all duration-500 translate-y-3" aria-label="Back to top">
+    <i data-lucide="arrow-up" class="w-4.5 h-4.5"></i>
+  </button>
+  <a id="floatWa" href="#" target="_blank" class="relative w-14 h-14 rounded-full bg-[#25D366] grid place-items-center shadow-[0_10px_30px_-8px_rgba(37,211,102,.7)] hover:scale-110 transition-transform" aria-label="Chat on WhatsApp">
+    <span class="absolute inset-0 rounded-full bg-[#25D366] [animation:pingRing_2s_ease-out_infinite]"></span>
+    <i data-lucide="message-circle" class="w-6 h-6 text-[#062b16] relative z-10"></i>
+  </a>
+</div>
+
+<!-- ===================== CART DRAWER ===================== -->
+<div id="cartBackdrop" class="backdrop"></div>
+<aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md z-[65] bg-[#12100b] border-l border-[var(--line)] flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-white/5">
+    <p class="serif text-2xl">Your Order</p>
+    <button id="closeCart" class="w-10 h-10 rounded-full border border-white/10 grid place-items-center" aria-label="Close order"><i data-lucide="x" class="w-4.5 h-4.5"></i></button>
+  </div>
+  <div id="cartItems" class="flex-1 overflow-y-auto px-6 py-5 space-y-4"></div>
+  <div class="px-6 py-5 border-t border-white/5 bg-[#0e0c08]">
+    <div class="flex justify-between text-sm text-[var(--muted)]"><span>Subtotal</span><span id="cartSub" class="text-[var(--cream)]">Rs 0</span></div>
+    <div class="flex justify-between text-sm text-[var(--muted)] mt-1.5"><span>Delivery (Quetta city)</span><span id="cartDel" class="text-[var(--cream)]">Rs 100</span></div>
+    <div class="flex justify-between mt-3 pt-3 border-t border-dashed border-white/10"><span class="serif text-lg">Total</span><span id="cartTotal" class="serif text-xl text-[var(--gold2)]">Rs 0</span></div>
+    <button id="checkoutWa" class="w-full mt-5 rounded-full py-3.5 text-sm font-semibold bg-[#25D366] text-[#062b16] hover:brightness-110 transition inline-flex items-center justify-center gap-2 disabled:opacity-40 disabled:pointer-events-none">
+      <i data-lucide="message-circle" class="w-4.5 h-4.5"></i> Place Order on WhatsApp
+    </button>
+    <p class="text-[11px] text-center text-[var(--muted)] mt-3">Cash on delivery or bank transfer. We confirm on WhatsApp in minutes.</p>
+  </div>
+</aside>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div id="lightbox" class="fixed inset-0 z-[75] bg-[#070604]/95 backdrop-blur-md hidden items-center justify-center p-4">
+  <button id="lbClose" class="absolute top-5 right-5 w-11 h-11 rounded-full border border-white/20 grid place-items-center hover:bg-white/10 transition z-10" aria-label="Close"><i data-lucide="x" class="w-5 h-5"></i></button>
+  <button id="lbPrev" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 grid place-items-center hover:bg-white/10 transition z-10" aria-label="Previous"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+  <button id="lbNext" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/20 grid place-items-center hover:bg-white/10 transition z-10" aria-label="Next"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+  <figure class="max-w-4xl w-full text-center">
+    <img id="lbImg" src="" alt="" class="max-h-[78vh] w-auto mx-auto rounded-2xl shadow-2xl object-contain transition-opacity duration-300">
+    <figcaption class="mt-4 text-sm text-[var(--muted)]"><span id="lbCap"></span> · <span id="lbCount"></span></figcaption>
+  </figure>
+</div>
+
+<!-- ===================== BOOKING SUCCESS MODAL ===================== -->
+<div id="bookBackdrop" class="backdrop !z-[72]"></div>
+<div id="bookModal" class="fixed inset-0 z-[76] hidden items-center justify-center p-4 pointer-events-none">
+  <div class="glass rounded-[2rem] max-w-md w-full p-8 text-center pointer-events-auto relative overflow-hidden">
+    <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-56 h-32 rounded-full bg-[var(--gold)]/15 blur-[60px]"></div>
+    <svg class="w-20 h-20 mx-auto" viewBox="0 0 60 60" fill="none">
+      <circle class="check-circle" cx="30" cy="30" r="26" stroke="#3FAF7A" stroke-width="3" stroke-linecap="round"/>
+      <path class="check-mark" d="M19 30l8 8 15-16" stroke="#3FAF7A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h3 class="serif text-3xl mt-4">Table Reserved!</h3>
+    <p class="text-sm text-[var(--muted)] mt-2">Booking reference</p>
+    <div class="mt-2 inline-flex items-center gap-2 glass rounded-full px-5 py-2">
+      <span id="bkRef" class="font-mono tracking-widest text-[var(--gold2)]"></span>
+      <button id="bkCopy" class="text-[var(--muted)] hover:text-[var(--cream)]" aria-label="Copy reference"><i data-lucide="copy" class="w-4 h-4"></i></button>
+    </div>
+    <div id="bkSummary" class="mt-6 text-left text-sm space-y-2 glass rounded-2xl p-5"></div>
+    <p class="text-xs text-[var(--muted)] mt-5">Confirm instantly so your sajji roasts on time:</p>
+    <div class="flex gap-3 mt-3">
+      <a id="bkWa" href="#" target="_blank" class="flex-1 rounded-full py-3 text-sm font-semibold bg-[#25D366] text-[#062b16] inline-flex items-center justify-center gap-2 hover:brightness-110 transition"><i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp</a>
+      <a id="bkMail" href="#" class="btn-ghost flex-1 rounded-full py-3 text-sm inline-flex items-center justify-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> Email</a>
+    </div>
+    <button id="bkClose" class="mt-4 text-sm text-[var(--muted)] hover:text-[var(--cream)] transition-colors link-underline">Done, shukriya</button>
+  </div>
+</div>
+
+<!-- ===================== TOASTS ===================== -->
+<div id="toastWrap"></div>
+
+<script>
+/* =========================================================================
+   ★★★  USMANIA QUETTA — REAL DETAILS. Edit here if anything changes.  ★★★
+   ========================================================================= */
+const CONFIG = {
+  name: "Usmania Restaurant Quetta",
+  currency: "Rs",
+  phone: "(081) 2829 629",           // real — Model Town / Pishin Stop
+  phoneRaw: "+92812829629",
+  whatsapp: "923331245870",          // 0333-1245870
+  email: "info@usmania.pk",          // ★ update to your real email
+  googleMapsLink: "https://maps.app.goo.gl/sjUkLTfyYGc1XE5G7",
+  deliveryFee: 100,
+  openHour: 12,                      // opens 12:00 PM
+  closeHour: 0,                      // closes 12:00 AM (midnight)
+  openLabel: "12:00 PM",
+  closeLabel: "12:00 AM",
+  branches: [
+    { name: "Model Town — Pishin Stop", address: "Old Pishin Stop, Khojak Road, near University Law College", city: "Model Town, Quetta 87300", note: "The flagship — family hall, live BBQ and the evening buffet.", hours: "12 PM – 12 AM", phone: "+92812829629", map: "https://maps.app.goo.gl/sjUkLTfyYGc1XE5G7" },
+    { name: "M.A. Jinnah Road", address: "M.A. Jinnah Road", city: "Quetta 87300", note: "Double-storey, first-floor family hall.", hours: "12 PM – 12 AM", phone: "+92812844127", map: "https://www.google.com/maps/search/?api=1&query=Usmania+Restaurant+Jinnah+Road+Quetta" },
+    { name: "Nosh by Usmania — Baleli Road", address: "Quetta–Kuchlak Road, Baleli Road", city: "Quetta", note: "Open-air desi dining, home of the Nosh Special Rice.", hours: "12 PM – 11:30 PM", phone: "+92812829629", map: "https://www.google.com/maps/search/?api=1&query=Nosh+By+Usmania+Restaurant+Baleli+Road+Quetta" }
+  ],
+  social: {
+    facebook: "https://www.facebook.com/UsmaniaRestaurantQuetta/",
+    instagram: "https://instagram.com/usmaniaquetta",
+    tiktok: "https://tiktok.com/@usmaniaquetta"
+  }
+};
+/* ========================================================================= */
+
+/* ---------------- DATA ---------------- */
+const IMG = {
+  plating:"https://images.pexels.com/photos/2403392/pexels-photo-2403392.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  skewers1:"https://images.pexels.com/photos/34613803/pexels-photo-34613803.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  skewers2:"https://images.pexels.com/photos/39059254/pexels-photo-39059254.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  skewers3:"https://images.pexels.com/photos/38209559/pexels-photo-38209559.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  ribs:"https://images.pexels.com/photos/39400851/pexels-photo-39400851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  bbqWide:"https://images.pexels.com/photos/5374014/pexels-photo-5374014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  biryani1:"https://images.pexels.com/photos/8250738/pexels-photo-8250738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  biryani2:"https://images.pexels.com/photos/18601877/pexels-photo-18601877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  biryani3:"https://images.pexels.com/photos/32986475/pexels-photo-32986475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  biryani4:"https://images.pexels.com/photos/37309267/pexels-photo-37309267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  biryani5:"https://images.pexels.com/photos/33456864/pexels-photo-33456864.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  roast:"https://images.pexels.com/photos/24186393/pexels-photo-24186393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  mains2:"https://images.pexels.com/photos/24186303/pexels-photo-24186303.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  mains3:"https://images.pexels.com/photos/28616663/pexels-photo-28616663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  mains4:"https://images.pexels.com/photos/5865244/pexels-photo-5865244.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  mains5:"https://images.pexels.com/photos/24245839/pexels-photo-24245839.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  eggs:"https://images.pexels.com/photos/24186308/pexels-photo-24186308.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  dessert1:"https://images.pexels.com/photos/39332801/pexels-photo-39332801.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  dessert2:"https://images.pexels.com/photos/35546720/pexels-photo-35546720.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  dessert3:"https://images.pexels.com/photos/34556919/pexels-photo-34556919.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  dessert5:"https://images.pexels.com/photos/16544183/pexels-photo-16544183.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  drink1:"https://images.pexels.com/photos/16859959/pexels-photo-16859959.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  drink5:"https://images.pexels.com/photos/8771964/pexels-photo-8771964.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  int1:"https://images.pexels.com/photos/20184687/pexels-photo-20184687.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  int2:"https://images.pexels.com/photos/20184681/pexels-photo-20184681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  int3:"https://images.pexels.com/photos/8856502/pexels-photo-8856502.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  int4:"https://images.pexels.com/photos/32157621/pexels-photo-32157621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  int5:"https://images.pexels.com/photos/17086327/pexels-photo-17086327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+};
+
+const MENU = [
+  // ——— USMANIA SPECIALS ———
+  {id:1, cat:"specials", name:"Usmania Special Soup", desc:"The bowl that warms Quetta winters — thick, peppery, shredded chicken.", price:600, img:IMG.plating, badges:["signature"]},
+  {id:2, cat:"specials", name:"Balochi Chicken Sajji", desc:"Whole bird, rock-salt rub, roasted low and slow the Balochi way.", price:1450, img:IMG.roast, badges:["signature"]},
+  {id:3, cat:"specials", name:"Mutton Leg Roast", desc:"The celebration centerpiece — steamed then roasted, raita on the side.", price:5500, img:IMG.ribs, badges:["signature"]},
+  {id:4, cat:"specials", name:"Tandoori Mutton Ribs", desc:"Seasoned ribs off the tandoor, crackling. The reviewer's favorite.", price:1400, img:IMG.skewers3, badges:["signature","spicy"]},
+  {id:5, cat:"specials", name:"Kabuli Pulao (Mutton)", desc:"Sweet carrots, raisins and silky rice over tender mutton.", price:1350, img:IMG.biryani3, badges:[]},
+  {id:6, cat:"specials", name:"Batair Roast (2 pcs)", desc:"Crisp-skinned quail with kadhai spices — old-school Quetta pride.", price:600, img:IMG.mains3, badges:["new"]},
+
+  // ——— KARAHI & HANDI ———
+  {id:10, cat:"karahi", name:"Chicken Karahi (Full)", desc:"Fresh tomatoes, green chillies, desi ghee — arrives still bubbling.", price:1700, img:IMG.mains4, badges:["signature","spicy"]},
+  {id:11, cat:"karahi", name:"Mutton Karahi (1 kg)", desc:"Namkeen style on full flame — meat, fat, ginger, nothing else needed.", price:3800, img:IMG.roast, badges:["spicy"]},
+  {id:12, cat:"karahi", name:"Usmania Special Chicken Handi", desc:"The signature clay-pot curry — rich, mild and dangerously scoopable.", price:1600, img:IMG.mains2, badges:["signature"]},
+  {id:13, cat:"karahi", name:"Chicken White Handi", desc:"Boneless chicken in a thick cream-and-yoghurt silken gravy.", price:1500, img:IMG.mains5, badges:[]},
+  {id:14, cat:"karahi", name:"Reshmi Paneer Handi", desc:"Creamy handi loaded with reshmi kabab and melted paneer.", price:1700, img:IMG.skewers2, badges:["new"]},
+  {id:15, cat:"karahi", name:"Chicken Ginger", desc:"Julienne ginger, black pepper and high flame — a house classic.", price:1600, img:IMG.eggs, badges:[]},
+
+  // ——— BBQ & GRILL ———
+  {id:20, cat:"bbq", name:"Chicken Malai Boti", desc:"Cream-marinated, charcoal-kissed. The most re-ordered skewer in town.", price:2200, img:IMG.ribs, badges:["signature"]},
+  {id:21, cat:"bbq", name:"Reshmi Kabab", desc:"Silky minced chicken skewers pulled straight off the coals.", price:1700, img:IMG.skewers1, badges:[]},
+  {id:22, cat:"bbq", name:"Balochi Tikka", desc:"Smoked meat tossed with green chillies, ginger and local butter.", price:1100, img:IMG.skewers2, badges:["spicy"]},
+  {id:23, cat:"bbq", name:"Chicken Tikka (Leg)", desc:"Tandoori masala, charred edges, a squeeze of lemon. The eternal classic.", price:500, img:IMG.skewers1, badges:["spicy"]},
+  {id:24, cat:"bbq", name:"Beef Seekh Kabab", desc:"Hand-minced beef and green chillies — smoke that walks home with you.", price:1270, img:IMG.skewers3, badges:["spicy"]},
+  {id:25, cat:"bbq", name:"Grand BBQ Platter (Full)", desc:"Tikka, malai boti, reshmi, seekh, ribs — feeds a very happy table.", price:7000, img:IMG.bbqWide, badges:["signature","new"]},
+
+  // ——— BIRYANI & RICE ———
+  {id:30, cat:"rice", name:"Chicken Biryani", desc:"Quetta's lunch-rush champion. Fragrant basmati, real masala punch.", price:940, img:IMG.biryani1, badges:["signature"]},
+  {id:31, cat:"rice", name:"Mutton Biryani", desc:"Deep, fragrant, heavy-handed with the meat. The purist's order.", price:1350, img:IMG.biryani3, badges:["spicy"]},
+  {id:32, cat:"rice", name:"Mutton Kabli Palao", desc:"Afghan-style palao — tender mutton under sweet carrot and raisin rice.", price:1350, img:IMG.biryani2, badges:[]},
+  {id:33, cat:"rice", name:"Nosh Special Rice", desc:"From our Baleli Road kitchen — loaded house rice with tikka chunks.", price:1190, img:IMG.biryani4, badges:["new"]},
+  {id:34, cat:"rice", name:"Egg Fried Rice", desc:"Wok-smoked with egg ribbons and spring onion. Comfort, fast.", price:760, img:IMG.biryani4, badges:[]},
+  {id:35, cat:"rice", name:"Chicken Masala Rice", desc:"Spiced rice tossed with tender chicken — hearty and honest.", price:840, img:IMG.biryani5, badges:[]},
+
+  // ——— CHINESE ———
+  {id:40, cat:"chinese", name:"Chicken Manchurian", desc:"Garlicky, tangy, glossy — the red-gravy king of Quetta Chinese.", price:1250, img:IMG.mains5, badges:["signature"]},
+  {id:41, cat:"chinese", name:"Usmania Special Chowmein", desc:"Loaded chowmein with chicken, egg and house chilli oil.", price:1250, img:IMG.biryani2, badges:[]},
+  {id:42, cat:"chinese", name:"Chicken Chowmein", desc:"Street-style noodles, wok breath, proper crunch.", price:1100, img:IMG.eggs, badges:[]},
+  {id:43, cat:"chinese", name:"Kung Pao Chicken", desc:"Peanuts, dried chillies and a sweet-spicy glaze.", price:1250, img:IMG.mains2, badges:["spicy"]},
+  {id:44, cat:"chinese", name:"Beef Chilli Dry", desc:"Crisp beef strips, black pepper fire, no gravy to slow you down.", price:1400, img:IMG.mains4, badges:["spicy"]},
+  {id:45, cat:"chinese", name:"Chicken Shashlik with Rice", desc:"Grilled skewer platter over a bed of sizzler rice.", price:1350, img:IMG.mains3, badges:[]},
+
+  // ——— DESSERTS & CHAI ———
+  {id:50, cat:"desserts", name:"Shahi Kheer", desc:"Slow-reduced milk, cardamom, malai skin — the nightly sellout.", price:300, img:IMG.dessert2, badges:["signature"]},
+  {id:51, cat:"desserts", name:"Gajar Ka Halwa (Seasonal)", desc:"Winter-only. Desi ghee and khoya — ask if the pot is on tonight.", price:450, img:IMG.dessert5, badges:["new"]},
+  {id:52, cat:"desserts", name:"Fruit Trifle", desc:"Chilled custard, fruit and soft sponge — a light, cold finish.", price:300, img:IMG.dessert1, badges:["veg"]},
+  {id:53, cat:"desserts", name:"Pista Ice Cream", desc:"Old-school scoop, properly nutty, served frost-cold.", price:400, img:IMG.dessert3, badges:["veg"]},
+  {id:54, cat:"desserts", name:"Kashmiri Chai", desc:"Pink, salted, almond-flecked — Quetta's winter handshake.", price:250, img:IMG.drink1, badges:["veg"]},
+  {id:55, cat:"desserts", name:"Doodh Patti", desc:"Full-milk chai boiled till it means it. Perfect with halwa.", price:150, img:IMG.drink5, badges:["veg"]}
+];
+
+const CATS = [
+  {key:"all", label:"All"},
+  {key:"specials", label:"Usmania Specials"},
+  {key:"karahi", label:"Karahi & Handi"},
+  {key:"bbq", label:"BBQ & Grill"},
+  {key:"rice", label:"Biryani & Rice"},
+  {key:"chinese", label:"Chinese"},
+  {key:"desserts", label:"Desserts & Chai"}
+];
+
+const REVIEWS = [
+  {name:"Imran K.", tag:"Local Guide · Quetta", rating:5, date:"2 weeks ago", text:"Ordered at a packed lunch and the food landed in under 12 minutes. The tandoori ribs are the specialty for a reason — best seat in Quetta right now.", color:"#3b2c14", tc:"#EDC97B"},
+  {name:"Farida B.", tag:"Family dawat", rating:5, date:"1 month ago", text:"Booked the family hall for my son's result party. The kabuli pulao and sajji disappeared before the photos did. They treat you like mehmaan, not customers.", color:"#23371f", tc:"#9fe0b8"},
+  {name:"Ahmed S.", tag:"First visit", rating:4, date:"3 weeks ago", text:"Half of Quetta told me about the evening buffet. The desi variety is genuinely huge. Parking fills fast on weekends — come a little early.", color:"#3a2033", tc:"#e3a9d3"},
+  {name:"Mahnoor & Ali", tag:"Anniversary dinner", rating:5, date:"1 month ago", text:"Reserved online and got a WhatsApp confirmation in minutes. White handi, fresh naan, kheer to finish — a perfect evening at Pishin Stop.", color:"#1f2c3b", tc:"#9cc4e8"},
+  {name:"Zafar Q.", tag:"Office lunch crowd", rating:3, date:"2 weeks ago", text:"Chicken biryani at Rs 940 that actually fills you up. Quiet at 1 PM, absolute madhouse by 8. Food always makes up for the wait.", color:"#3b2f14", tc:"#f0c37b"},
+  {name:"Bilal H.", tag:"Regular · 5 years", rating:4, date:"1 week ago", text:"Malai boti and reshmi kabab on the coals, Kashmiri chai after. My default answer when anyone asks where to eat in Quetta.", color:"#2c2331", tc:"#c9a8e0"}
+];
+
+const GALLERY = [
+  {img:IMG.skewers1, cap:"Kababs on live coals", cat:"bbq"},
+  {img:IMG.int1, cap:"The Model Town dining hall", cat:"interior"},
+  {img:IMG.biryani3, cap:"Kabuli pulao night", cat:"food"},
+  {img:IMG.int3, cap:"Family hall, set for a dawat", cat:"interior"},
+  {img:IMG.plating, cap:"Special Soup on the pass", cat:"food"},
+  {img:IMG.ribs, cap:"Tandoori ribs, smoke rising", cat:"bbq"},
+  {img:IMG.dessert2, cap:"Kheer — the nightly sellout", cat:"desserts"},
+  {img:IMG.int4, cap:"Jinnah Road, first floor", cat:"interior"},
+  {img:IMG.int5, cap:"Corner table, ready for you", cat:"interior"},
+  {img:IMG.roast, cap:"Sajji out of the roast", cat:"food"},
+  {img:IMG.dessert3, cap:"Halwa, winter edition", cat:"desserts"},
+  {img:IMG.bbqWide, cap:"The Grand Platter", cat:"bbq"}
+];
+
+const FAQS = [
+  {q:"Do you deliver in Quetta?", a:"Yes — city-wide, usually within 45 minutes. Order on WhatsApp (0333 124 5870) or call (081) 2829 629. Flat delivery fee Rs 100, cash on delivery accepted."},
+  {q:"Is there family seating?", a:"Both Model Town and Jinnah Road branches have separate family halls — Jinnah Road's is on the first floor. Mention it when you reserve."},
+  {q:"When is the buffet?", a:"The evening buffet runs at the Pishin Stop branch, roughly 7 to 11 PM. Walk-ins welcome; groups should reserve ahead."},
+  {q:"Can I pre-order sajji or leg roast?", a:"Please do — roasts take time. Write it in your reservation note or message us a few hours early so it is ready when you arrive."},
+  {q:"Can I cancel a reservation?", a:"Free cancellation up to 2 hours before your slot. Just send your booking reference on WhatsApp."}
+];
+
+/* ---------------- HELPERS ---------------- */
+const $  = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const fmt = n => CONFIG.currency + " " + n.toLocaleString("en-US");
+const waLink = msg => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+const mailLink = (subject, body) => `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+function toast(msg, icon="check"){
+  const el = document.createElement("div");
+  el.className = "toast glass rounded-full px-5 py-3 text-sm flex items-center gap-2.5 pointer-events-auto shadow-2xl";
+  el.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 text-[var(--gold)]"></i><span>${msg}</span>`;
+  $("#toastWrap").appendChild(el);
+  if(window.lucide) lucide.createIcons();
+  setTimeout(()=>{ el.classList.add("out"); setTimeout(()=>el.remove(), 400); }, 2800);
+}
+
+/* ---------------- PRELOADER ---------------- */
+(function(){
+  let p = 0;
+  const fill = $("#plFill");
+  const iv = setInterval(()=>{ p = Math.min(p + Math.random()*22, 90); fill.style.width = p+"%"; }, 180);
+  window.addEventListener("load", ()=>{
+    clearInterval(iv);
+    fill.style.width = "100%";
+    setTimeout(()=>{
+      $("#preloader").classList.add("done");
+      document.body.classList.add("hero-loaded");
+    }, 900);
+  });
+  setTimeout(()=>{ // safety for restricted webviews
+    clearInterval(iv);
+    $("#preloader").classList.add("done");
+    document.body.classList.add("hero-loaded");
+  }, 4200);
+})();
+
+/* ---------------- CONFIG WIRING ---------------- */
+(function(){
+  const wa = waLink(`Assalam-o-Alaikum ${CONFIG.name}! I have a question.`);
+  const waMenu = waLink(`Assalam-o-Alaikum! Please send me the full Usmania menu with prices.`);
+  const waOrder = waLink(`Assalam-o-Alaikum! I would like to place a home delivery order.`);
+  $("#floatWa").href = wa; $("#mobWa").href = wa; $("#resWa").href = wa;
+  $("#ftWa").href = wa; $("#ctWa").href = wa; $("#delWa").href = waOrder;
+  $("#waOrderTop").onclick = ()=> window.open(waOrder, "_blank");
+  $("#fullMenuWa").href = waMenu;
+  $("#mobMail").href = "mailto:"+CONFIG.email;
+  $("#mobCall").href = "tel:"+CONFIG.phoneRaw;
+  $("#ctMail").href = mailLink("Hello "+CONFIG.name, "");
+  $("#ctCall").href = "tel:"+CONFIG.phoneRaw;
+  $("#delCall").href = "tel:"+CONFIG.phoneRaw;
+  $("#resCall").href = "tel:"+CONFIG.phoneRaw;
+  $("#resCallText").textContent = "Call " + CONFIG.phone;
+  $("#ctWaText").textContent = "0333 124 5870 — fastest replies";
+  $("#ctMailText").textContent = CONFIG.email;
+  $("#ctCallText").textContent = CONFIG.phone + " · " + CONFIG.openLabel + " – " + CONFIG.closeLabel + " daily";
+  $("#ftPhone").textContent = CONFIG.phone + "  ·  0333 124 5870";
+  $("#ftMail").textContent = CONFIG.email;
+  $("#ftAddr").textContent = CONFIG.branches[0].address + ", " + CONFIG.branches[0].city;
+  $("#ftName").textContent = CONFIG.name;
+  $("#ftFb").href = CONFIG.social.facebook;
+  $("#ftIg").href = CONFIG.social.instagram;
+  $("#ftTk").href = CONFIG.social.tiktok;
+  $("#gReviewLink").href = CONFIG.googleMapsLink;
+  $("#mapOverlayBtn").href = CONFIG.googleMapsLink;
+  $("#year").textContent = new Date().getFullYear();
+  $("#ftHours").innerHTML = `
+    <li class="flex justify-between gap-6"><span>Mon – Sun</span><span class="text-[var(--cream)]">${CONFIG.openLabel} – ${CONFIG.closeLabel}</span></li>
+    <li class="flex justify-between gap-6"><span>Evening buffet (Pishin Stop)</span><span class="text-[var(--cream)]">7 – 11 PM</span></li>
+    <li class="flex justify-between gap-6"><span>Kitchen last order</span><span class="text-[var(--cream)]">11:30 PM</span></li>`;
+  const q = encodeURIComponent("Usmania Restaurant, Old Pishin Stop, Khojak Road, Model Town, Quetta");
+  $("#gmap").src = `https://www.google.com/maps?q=${q}&output=embed`;
+})();
+
+/* ---------------- OPEN NOW STATUS (closes midnight) ---------------- */
+(function(){
+  const h = new Date().getHours();
+  const open = CONFIG.openHour <= CONFIG.closeHour
+    ? (h >= CONFIG.openHour && h < CONFIG.closeHour)
+    : (h >= CONFIG.openHour || h < CONFIG.closeHour);
+  const dot = $("#openDot");
+  if(!open) dot.style.background = "var(--red)";
+  $("#openStatus").textContent = open ? "Open now — the coals are glowing" : "Currently closed — opens " + CONFIG.openLabel;
+  $("#openHours").textContent = `Daily ${CONFIG.openLabel} – ${CONFIG.closeLabel} · Kitchen last order 11:30 PM`;
+})();
+
+/* ---------------- NAVBAR ---------------- */
+(function(){
+  const bar = $("#navbar");
+  let lastY = 0;
+  window.addEventListener("scroll", ()=>{
+    const y = window.scrollY;
+    bar.style.transform = (y > 500 && y > lastY) ? "translateY(-110%)" : "translateY(0)";
+    lastY = y;
+    const d = document.documentElement;
+    $("#progressbar").style.width = (y / (d.scrollHeight - innerHeight) * 100) + "%";
+    const t = $("#toTop");
+    if(y > 700){ t.style.opacity=1; t.style.pointerEvents="auto"; t.style.transform="translateY(0)"; }
+    else { t.style.opacity=0; t.style.pointerEvents="none"; t.style.transform="translateY(12px)"; }
+  }, {passive:true});
+  $("#toTop").onclick = ()=> window.scrollTo({top:0, behavior:"smooth"});
+
+  const mm = $("#mobileMenu");
+  $("#burger").onclick = ()=> mm.classList.add("open");
+  $("#closeMobile").onclick = ()=> mm.classList.remove("open");
+  $$(".mob-link").forEach(a => a.onclick = ()=> mm.classList.remove("open"));
+
+  const secs = ["about","menu","delivery","gallery","reviews","branches","contact"];
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        $$(".nav-link").forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#"+e.target.id));
+      }
+    });
+  }, {rootMargin:"-40% 0px -55% 0px"});
+  secs.forEach(id=>{ const el=document.getElementById(id); if(el) obs.observe(el); });
+})();
+
+/* ---------------- REVEAL ANIMATIONS ---------------- */
+(function(){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); obs.unobserve(e.target); } });
+  }, {threshold:.12});
+  $$(".reveal,.reveal-scale").forEach(el=>obs.observe(el));
+})();
+
+/* ---------------- COUNTERS ---------------- */
+(function(){
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      obs.unobserve(e.target);
+      const el = e.target;
+      const isDec = el.hasAttribute("data-counter-dec");
+      const target = isDec ? parseFloat(el.dataset.counterDec) : parseInt(el.dataset.counter);
+      const dur = 1800, t0 = performance.now();
+      const step = t=>{
+        const p = Math.min((t-t0)/dur, 1);
+        const ease = 1 - Math.pow(1-p, 3);
+        el.textContent = isDec ? (target*ease).toFixed(1) : Math.round(target*ease).toLocaleString();
+        if(p<1) requestAnimationFrame(step);
+        else el.textContent = isDec ? target.toFixed(1) : target.toLocaleString();
+      };
+      requestAnimationFrame(step);
+    });
+  }, {threshold:.6});
+  $$("[data-counter],[data-counter-dec]").forEach(el=>obs.observe(el));
+})();
+
+/* ---------------- MARQUEE ---------------- */
+(function(){
+  const items = ["Balochi Sajji","Tandoori Ribs","Kabuli Pulao","Mutton Karahi","Malai Boti","Usmania Special Soup","Evening Buffet","Family Hall","Kashmiri Chai","Open till Midnight"];
+  const html = items.map(t=>`<span class="flex items-center gap-10"><span>${t}</span><i data-lucide="flame" class="w-4 h-4 text-[var(--gold)] shrink-0"></i></span>`).join("");
+  $("#mq1").innerHTML = html; $("#mq2").innerHTML = html;
+})();
+
+/* ---------------- STATS ---------------- */
+(function(){
+  const stats = [
+    {icon:"chef-hat", num:100, suffix:"+", label:"dishes on the menu"},
+    {icon:"thumbs-up", num:1900, suffix:"+", label:"Facebook recommendations"},
+    {icon:"clock-3", num:12, suffix:" hrs", label:"open every day"},
+    {icon:"map-pin", num:3, suffix:"", label:"branches across Quetta"}
+  ];
+  $("#stats").innerHTML = stats.map((s,i)=>`
+    <div class="reveal stat-card relative glass rounded-3xl p-6 sm:p-8 text-center lift" style="--d:${i*.1}s">
+      <i data-lucide="${s.icon}" class="w-6 h-6 mx-auto text-[var(--gold)]"></i>
+      <p class="serif text-4xl sm:text-5xl mt-4 text-[var(--gold2)]"><span data-counter="${s.num}">0</span>${s.suffix}</p>
+      <p class="text-xs text-[var(--muted)] mt-2">${s.label}</p>
+    </div>`).join("");
+})();
+
+/* ---------------- MENU ---------------- */
+let activeCat = "all";
+function badgeHtml(b){
+  const map = { spicy:["flame","Spicy","bg-[#C65D3B]/15 text-[#ff9a76]"], veg:["leaf","Veg","bg-[#3FAF7A]/15 text-[#8fe3bb]"], signature:["crown","Signature","bg-[#D6A53F]/15 text-[#EDC97B]"], new:["sparkles","New","bg-[#5b8dd9]/15 text-[#9cc4f0]"] };
+  return b.map(k=>`<span class="badge ${map[k][2]} inline-flex items-center gap-1"><i data-lucide="${map[k][0]}" class="w-3 h-3"></i>${map[k][1]}</span>`).join("");
+}
+function renderTabs(){
+  $("#menuTabs").innerHTML = CATS.map(c=>`
+    <button data-cat="${c.key}" class="tab-pill shrink-0 border border-white/12 rounded-full px-5 py-2.5 text-sm text-[var(--muted)] ${c.key===activeCat?'active':''}">${c.label}</button>`).join("");
+  $$("#menuTabs button").forEach(b=>b.onclick=()=>{ activeCat=b.dataset.cat; renderTabs(); renderMenu(); });
+}
+function renderMenu(){
+  const items = MENU.filter(m => activeCat==="all" || m.cat===activeCat);
+  const grid = $("#menuGrid");
+  grid.style.opacity = 0;
+  setTimeout(()=>{
+    grid.innerHTML = items.map((m,i)=>`
+      <article class="menu-card glass rounded-3xl overflow-hidden lift group" style="--cd:${i*0.06}s">
+        <div class="img-zoom relative h-44">
+          <img src="${m.img}" alt="${m.name}" loading="lazy" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b0a07]/70 to-transparent"></div>
+          <span class="absolute bottom-3 right-3 glass rounded-full px-3.5 py-1.5 text-sm font-semibold text-[var(--gold2)]">${fmt(m.price)}</span>
+        </div>
+        <div class="p-5">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="serif text-xl leading-snug">${m.name}</h3>
+            <button class="add-cart shrink-0 w-10 h-10 rounded-full grid place-items-center border border-[var(--gold)]/40 text-[var(--gold2)] hover:bg-[var(--gold)] hover:text-[#191204] transition-all active:scale-90" data-id="${m.id}" aria-label="Add ${m.name} to order">
+              <i data-lucide="plus" class="w-4.5 h-4.5"></i>
+            </button>
+          </div>
+          <p class="text-sm text-[var(--muted)] mt-2 leading-relaxed">${m.desc}</p>
+          ${m.badges.length ? `<div class="flex flex-wrap gap-2 mt-4">${badgeHtml(m.badges)}</div>` : ""}
+        </div>
+      </article>`).join("");
+    grid.style.opacity = 1;
+    if(window.lucide) lucide.createIcons();
+    $$(".add-cart").forEach(b => b.onclick = ()=> addToCart(parseInt(b.dataset.id)));
+  }, 200);
+}
+renderTabs(); renderMenu();
+
+/* ---------------- CART ---------------- */
+let cart = {};
+try{ cart = JSON.parse(localStorage.getItem("usq_cart")||"{}"); }catch(e){ cart = {}; }
+
+function saveCart(){ try{ localStorage.setItem("usq_cart", JSON.stringify(cart)); }catch(e){} updateCartUI(); }
+function addToCart(id){
+  cart[id] = (cart[id]||0) + 1;
+  saveCart();
+  const item = MENU.find(m=>m.id===id);
+  toast(`${item.name} added to your order`, "shopping-bag");
+  const badge = $("#cartCount");
+  badge.style.transform = "scale(1.4)";
+  setTimeout(()=>badge.style.transform="scale(1)", 250);
+}
+function cartTotals(){
+  let sub = 0, count = 0;
+  for(const id in cart){
+    const m = MENU.find(x=>x.id==id);
+    if(m){ sub += m.price * cart[id]; count += cart[id]; }
+  }
+  return {sub, count, del: count>0?CONFIG.deliveryFee:0};
+}
+function updateCartUI(){
+  const {sub, count, del} = cartTotals();
+  const badge = $("#cartCount");
+  badge.textContent = count;
+  badge.classList.toggle("hidden", count===0);
+  $("#cartSub").textContent = fmt(sub);
+  $("#cartDel").textContent = count===0 ? "—" : fmt(del);
+  $("#cartTotal").textContent = fmt(sub + del);
+  $("#checkoutWa").disabled = count===0;
+
+  const wrap = $("#cartItems");
+  if(count===0){
+    wrap.innerHTML = `<div class="h-full flex flex-col items-center justify-center text-center gap-4 py-16">
+      <span class="w-16 h-16 rounded-full border border-white/10 grid place-items-center"><i data-lucide="utensils" class="w-6 h-6 text-[var(--muted)]"></i></span>
+      <p class="text-[var(--muted)] text-sm">Your plate is empty.<br>Add something from the menu.</p>
+      <button onclick="closeCartFn();document.getElementById('menu').scrollIntoView({behavior:'smooth'})" class="btn-ghost rounded-full px-6 py-2.5 text-sm">Browse Menu</button>
+    </div>`;
+  } else {
+    wrap.innerHTML = Object.keys(cart).map(id=>{
+      const m = MENU.find(x=>x.id==id);
+      return `<div class="glass rounded-2xl p-4 flex gap-4 items-center">
+        <img src="${m.img}" alt="${m.name}" class="w-16 h-16 rounded-xl object-cover shrink-0">
+        <div class="flex-1 min-w-0">
+          <p class="font-medium truncate">${m.name}</p>
+          <p class="text-xs text-[var(--muted)]">${fmt(m.price)} each</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="qty w-7 h-7 rounded-full border border-white/15 grid place-items-center text-sm" data-id="${id}" data-d="-1">−</button>
+          <span class="w-5 text-center text-sm font-medium">${cart[id]}</span>
+          <button class="qty w-7 h-7 rounded-full border border-white/15 grid place-items-center text-sm" data-id="${id}" data-d="1">+</button>
+        </div>
+      </div>`;
+    }).join("");
+    $$(".qty").forEach(b=>b.onclick=()=>{
+      const id = b.dataset.id, d = parseInt(b.dataset.d);
+      cart[id] += d;
+      if(cart[id] <= 0) delete cart[id];
+      saveCart();
+    });
+  }
+  if(window.lucide) lucide.createIcons();
+}
+updateCartUI();
+
+const drawer = $("#cartDrawer"), cback = $("#cartBackdrop");
+window.closeCartFn = ()=>{ drawer.classList.remove("open"); cback.classList.remove("show"); document.body.style.overflow=""; };
+$("#cartBtn").onclick = ()=>{ drawer.classList.add("open"); cback.classList.add("show"); document.body.style.overflow="hidden"; };
+$("#closeCart").onclick = closeCartFn;
+cback.onclick = closeCartFn;
+
+$("#checkoutWa").onclick = ()=>{
+  const {sub, del} = cartTotals();
+  let lines = [`Assalam-o-Alaikum Usmania! My order (Pishin Stop):`, ""];
+  for(const id in cart){ const m = MENU.find(x=>x.id==id); lines.push(`• ${cart[id]}× ${m.name} — ${fmt(m.price*cart[id])}`); }
+  lines.push("", `Delivery: ${fmt(del)}`, `Total: ${fmt(sub+del)}`, "", "Name: ", "Delivery address: ");
+  window.open(waLink(lines.join("\n")), "_blank");
+  toast("Opening WhatsApp with your order…", "message-circle");
+};
+
+/* ---------------- HOUSE LEGENDS ---------------- */
+(function(){
+  const picks = [
+    {img:IMG.plating, name:"Usmania Special Soup", price:600, note:"The bowl that warms Quetta winters"},
+    {img:IMG.roast, name:"Balochi Chicken Sajji", price:1450, note:"Rock salt, patience, no shortcuts"},
+    {img:IMG.ribs, name:"Tandoori Mutton Ribs", price:1400, note:"The reviewer's favorite, crackling"},
+    {img:IMG.biryani3, name:"Kabuli Pulao (Mutton)", price:1350, note:"Sweet carrots, raisins, silky rice"},
+    {img:IMG.bbqWide, name:"Grand BBQ Platter", price:7000, note:"Feeds a very, very happy table"}
+  ];
+  $("#picksTrack").innerHTML = picks.map((p,i)=>`
+    <article class="snap-start shrink-0 w-[78vw] sm:w-[26rem] glass rounded-3xl overflow-hidden lift group relative">
+      <div class="img-zoom h-80 relative">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0a07] via-transparent to-transparent"></div>
+        <span class="absolute top-4 left-4 glass rounded-full px-3 py-1 text-[10px] tracking-[.25em] uppercase text-[var(--gold2)]">Legend No. ${i+1}</span>
+      </div>
+      <div class="p-6 -mt-12 relative z-10">
+        <div class="flex items-end justify-between gap-3">
+          <h3 class="serif text-2xl">${p.name}</h3>
+          <span class="text-[var(--gold2)] font-semibold whitespace-nowrap">${fmt(p.price)}</span>
+        </div>
+        <p class="text-sm text-[var(--muted)] mt-1.5">${p.note}</p>
+      </div>
+    </article>`).join("");
+  const track = $("#picksTrack");
+  $("#picksPrev").onclick = ()=> track.scrollBy({left:-420, behavior:"smooth"});
+  $("#picksNext").onclick = ()=> track.scrollBy({left:420, behavior:"smooth"});
+})();
+
+/* ---------------- GALLERY + LIGHTBOX ---------------- */
+let galCat = "all", lbList = [], lbIdx = 0;
+function renderGalleryTabs(){
+  const cats = [{key:"all",label:"All"},{key:"food",label:"Food"},{key:"interior",label:"Halls"},{key:"bbq",label:"Live BBQ"},{key:"desserts",label:"Desserts"}];
+  $("#galleryTabs").innerHTML = cats.map(c=>`
+    <button data-g="${c.key}" class="tab-pill border border-white/12 rounded-full px-4 py-2 text-xs tracking-wide text-[var(--muted)] ${c.key===galCat?'active':''}">${c.label}</button>`).join("");
+  $$("#galleryTabs button").forEach(b=>b.onclick=()=>{ galCat=b.dataset.g; renderGalleryTabs(); renderGallery(); });
+}
+function renderGallery(){
+  const list = GALLERY.filter(g => galCat==="all" || g.cat===galCat);
+  lbList = list;
+  $("#galleryGrid").innerHTML = list.map((g,i)=>`
+    <figure class="g-item mb-4 break-inside-avoid relative rounded-2xl overflow-hidden img-zoom lift cursor-pointer group" data-i="${i}" style="--cd:${i*.05}s">
+      <img src="${g.img}" alt="${g.cap}" loading="lazy" class="w-full object-cover">
+      <figcaption class="absolute inset-0 bg-gradient-to-t from-[#0b0a07]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+        <span class="text-sm">${g.cap}</span>
+        <i data-lucide="expand" class="w-4 h-4 ml-auto text-[var(--gold2)]"></i>
+      </figcaption>
+    </figure>`).join("");
+  if(window.lucide) lucide.createIcons();
+  $$("#galleryGrid .g-item").forEach(el => el.onclick = ()=> openLb(parseInt(el.dataset.i)));
+}
+const lb = $("#lightbox");
+function openLb(i){
+  lbIdx = i;
+  updateLb();
+  lb.classList.remove("hidden"); lb.classList.add("flex");
+  document.body.style.overflow = "hidden";
+}
+function updateLb(dir){
+  const g = lbList[lbIdx];
+  const img = $("#lbImg");
+  img.style.opacity = 0;
+  setTimeout(()=>{
+    img.src = g.img.replace(/w=940/, "w=1600");
+    img.alt = g.cap;
+    img.onload = ()=> img.style.opacity = 1;
+    $("#lbCap").textContent = g.cap;
+    $("#lbCount").textContent = (lbIdx+1) + " / " + lbList.length;
+  }, dir ? 150 : 0);
+}
+function closeLb(){ lb.classList.add("hidden"); lb.classList.remove("flex"); document.body.style.overflow=""; }
+$("#lbClose").onclick = closeLb;
+$("#lbNext").onclick = ()=>{ lbIdx = (lbIdx+1)%lbList.length; updateLb(1); };
+$("#lbPrev").onclick = ()=>{ lbIdx = (lbIdx-1+lbList.length)%lbList.length; updateLb(1); };
+lb.onclick = e => { if(e.target===lb) closeLb(); };
+document.addEventListener("keydown", e=>{
+  if(lb.classList.contains("hidden")) return;
+  if(e.key==="Escape") closeLb();
+  if(e.key==="ArrowRight") $("#lbNext").click();
+  if(e.key==="ArrowLeft") $("#lbPrev").click();
+});
+renderGalleryTabs(); renderGallery();
+
+/* ---------------- REVIEWS ---------------- */
+(function(){
+  const avg = REVIEWS.reduce((a,r)=>a+r.rating,0)/REVIEWS.length;
+  $("#avgRating").textContent = avg.toFixed(1);
+  $("#avgCount").textContent = "4.1 on Google · 86% of 1,895 recommend on Facebook";
+  $("#avgStars").innerHTML = Array.from({length:5},(_,i)=>`<i data-lucide="star" class="w-4 h-4 ${i < Math.round(avg) ? 'fill-current' : 'opacity-30'}"></i>`).join("");
+  const dist = [55,27,10,5,3];
+  $("#ratingBars").innerHTML = dist.map((p,i)=>`
+    <div class="flex items-center gap-3 text-xs">
+      <span class="w-6 text-[var(--muted)]">${5-i}★</span>
+      <div class="flex-1 h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-[#8a6420] to-[var(--gold2)] rev-bar" style="width:0%" data-w="${p}"></div></div>
+      <span class="w-8 text-right text-[var(--muted)]">${p}%</span>
+    </div>`).join("");
+
+  const initials = n => n.split(" ").map(w=>w[0]).join("").replace("&","").slice(0,2);
+  $("#revTrack").innerHTML = REVIEWS.map(r=>`
+    <div class="min-w-full p-8 sm:p-12">
+      <div class="flex gap-1 text-[var(--gold2)]">${Array.from({length:5},(_,i)=>`<i data-lucide="star" class="w-4.5 h-4.5 ${i<r.rating?'fill-current':'opacity-25'}"></i>`).join("")}</div>
+      <p class="serif text-xl sm:text-2xl lg:text-[1.7rem] leading-relaxed mt-5 italic">“${r.text}”</p>
+      <div class="flex items-center gap-4 mt-8">
+        <span class="w-12 h-12 rounded-full grid place-items-center font-bold text-sm" style="background:${r.color};color:${r.tc}">${initials(r.name)}</span>
+        <div>
+          <p class="font-medium">${r.name}</p>
+          <p class="text-xs text-[var(--muted)]">${r.tag} · ${r.date}</p>
+        </div>
+        <i data-lucide="badge-check" class="w-5 h-5 text-[#5b8dd9] ml-auto"></i>
+      </div>
+    </div>`).join("");
+  $("#revDots").innerHTML = REVIEWS.map((_,i)=>`<button data-d="${i}" class="rev-dot h-2 rounded-full transition-all duration-500 ${i===0?'w-8 bg-[var(--gold)]':'w-2 bg-white/20'}" aria-label="Go to review ${i+1}"></button>`).join("");
+
+  let idx = 0, timer, progT;
+  const DUR = 6000;
+  function go(i){
+    idx = (i+REVIEWS.length)%REVIEWS.length;
+    $("#revTrack").style.transform = `translateX(-${idx*100}%)`;
+    $$(".rev-dot").forEach((d,j)=>{
+      d.className = `rev-dot h-2 rounded-full transition-all duration-500 ${j===idx?'w-8 bg-[var(--gold)]':'w-2 bg-white/20'}`;
+    });
+    restart();
+  }
+  function restart(){
+    clearInterval(timer); clearInterval(progT);
+    const bar = $("#revProg"); let p = 0; bar.style.width = "0%";
+    progT = setInterval(()=>{ p += 100/(DUR/100); bar.style.width = Math.min(p,100)+"%"; }, 100);
+    timer = setInterval(()=> go(idx+1), DUR);
+  }
+  $("#revNext").onclick = ()=>go(idx+1);
+  $("#revPrev").onclick = ()=>go(idx-1);
+  $$(".rev-dot").forEach(d=>d.onclick=()=>go(parseInt(d.dataset.d)));
+  const card = $("#revTrack").parentElement;
+  card.addEventListener("mouseenter", ()=>{ clearInterval(timer); clearInterval(progT); });
+  card.addEventListener("mouseleave", restart);
+  let sx = 0;
+  card.addEventListener("touchstart", e=> sx = e.touches[0].clientX, {passive:true});
+  card.addEventListener("touchend", e=>{
+    const dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 50) go(dx < 0 ? idx+1 : idx-1);
+  }, {passive:true});
+  restart();
+
+  const barObs = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ $$(".rev-bar").forEach(b=>{ b.style.transition="width 1.4s cubic-bezier(.22,1,.36,1)"; b.style.width = b.dataset.w+"%"; }); barObs.disconnect(); } });
+  }, {threshold:.4});
+  barObs.observe($("#ratingBars"));
+})();
+
+/* ---------------- RESERVATION ---------------- */
+(function(){
+  $("#rBranch").innerHTML = `<option value="">Choose branch</option>` + CONFIG.branches.map(b=>`<option>${b.name}</option>`).join("");
+  const d = new Date();
+  $("#rDate").min = d.toISOString().split("T")[0];
+  const max = new Date(); max.setDate(max.getDate()+60);
+  $("#rDate").max = max.toISOString().split("T")[0];
+
+  function shake(el){ el.style.borderColor = "var(--red)"; setTimeout(()=>el.style.borderColor="", 2200); }
+
+  $("#resForm").addEventListener("submit", e=>{
+    e.preventDefault();
+    const name=$("#rName"), phone=$("#rPhone"), date=$("#rDate"), time=$("#rTime"), guests=$("#rGuests"), branch=$("#rBranch");
+    let ok = true;
+    [name,phone,date,time,guests,branch].forEach(f=>{ if(!f.value.trim()){ shake(f); ok=false; } });
+    if(phone.value.replace(/\D/g,"").length < 7){ shake(phone); ok=false; }
+    if(!ok){ toast("Please fill the highlighted fields", "alert-circle"); return; }
+
+    const ref = "USQ-" + Math.random().toString(36).substring(2,7).toUpperCase();
+    const data = { ref, name:name.value.trim(), phone:phone.value.trim(), date:date.value, time:time.value, guests:guests.value, branch:branch.value, occasion:$("#rOccasion").value, note:$("#rNote").value.trim() };
+    try{
+      const all = JSON.parse(localStorage.getItem("usq_bookings")||"[]");
+      all.push(data); localStorage.setItem("usq_bookings", JSON.stringify(all));
+    }catch(err){}
+
+    const niceDate = new Date(date.value+"T00:00:00").toLocaleDateString("en-US",{weekday:"long", day:"numeric", month:"long", year:"numeric"});
+    $("#bkRef").textContent = ref;
+    $("#bkSummary").innerHTML = `
+      <p class="flex justify-between gap-4"><span class="text-[var(--muted)]">Guest</span><span class="text-right">${data.name}</span></p>
+      <p class="flex justify-between gap-4"><span class="text-[var(--muted)]">Phone</span><span class="text-right">${data.phone}</span></p>
+      <p class="flex justify-between gap-4"><span class="text-[var(--muted)]">Branch</span><span class="text-right">${data.branch}</span></p>
+      <p class="flex justify-between gap-4"><span class="text-[var(--muted)]">Date</span><span class="text-right">${niceDate}</span></p>
+      <p class="flex justify-between gap-4"><span class="text-[var(--muted)]">Time</span><span class="text-right">${data.time}</span></p>
+      <p class="flex justify-between gap-4"><span class="text-[var(--muted)]">Party</span><span class="text-right">${data.guests}</span></p>
+      ${data.note ? `<p class="flex justify-between gap-4"><span class="text-[var(--muted)]">Note</span><span class="text-right">${data.note}</span></p>` : ""}`;
+
+    const msg = [`Assalam-o-Alaikum Usmania Quetta! New table reservation:`,``,`Ref: ${ref}`,`Name: ${data.name}`,`Phone: ${data.phone}`,`Branch: ${data.branch}`,`Date: ${niceDate}`,`Time: ${data.time}`,`Guests: ${data.guests}`,`Occasion: ${data.occasion}`, data.note?`Note: ${data.note}`:null].filter(Boolean).join("\n");
+    $("#bkWa").href = waLink(msg);
+    $("#bkMail").href = mailLink(`Table Reservation ${ref} — Usmania Quetta`, msg);
+
+    const bd = $("#bookBackdrop"), md = $("#bookModal");
+    bd.classList.add("show"); md.classList.remove("hidden"); md.classList.add("flex");
+    md.querySelector(".glass").style.animation = "cardIn .6s cubic-bezier(.22,1,.36,1) both";
+    if(window.lucide) lucide.createIcons();
+    e.target.reset();
+    toast("Reservation saved", "calendar-check");
+  });
+
+  const closeBook = ()=>{ $("#bookBackdrop").classList.remove("show"); $("#bookModal").classList.add("hidden"); $("#bookModal").classList.remove("flex"); };
+  $("#bkClose").onclick = closeBook;
+  $("#bookBackdrop").onclick = closeBook;
+  $("#bkCopy").onclick = ()=>{
+    const t = $("#bkRef").textContent;
+    if(navigator.clipboard) navigator.clipboard.writeText(t).then(()=>toast("Reference copied","copy"));
+  };
+})();
+
+/* ---------------- BRANCHES ---------------- */
+(function(){
+  $("#branchGrid").innerHTML = CONFIG.branches.map((b,i)=>`
+    <div class="reveal glass rounded-3xl p-7 lift flex flex-col" style="--d:${i*.12}s">
+      <span class="w-12 h-12 rounded-2xl bg-[var(--gold)]/12 grid place-items-center"><i data-lucide="map-pin" class="w-5.5 h-5.5 text-[var(--gold)]"></i></span>
+      <h3 class="serif text-2xl mt-5">${b.name}</h3>
+      <p class="text-sm text-[var(--muted)] mt-2 flex-1">${b.address}<br>${b.city}</p>
+      <p class="text-xs text-[var(--gold2)]/90 mt-3 flex items-center gap-2"><i data-lucide="sparkle" class="w-3.5 h-3.5"></i>${b.note}</p>
+      <p class="text-xs text-[var(--muted)] mt-2 flex items-center gap-2"><i data-lucide="clock-3" class="w-3.5 h-3.5"></i>${b.hours}</p>
+      <div class="flex gap-3 mt-6">
+        <a href="${b.map}" target="_blank" class="btn-gold flex-1 rounded-full py-2.5 text-xs text-center font-semibold inline-flex items-center justify-center gap-1.5"><i data-lucide="navigation" class="w-3.5 h-3.5"></i> Directions</a>
+        <a href="tel:${b.phone}" class="btn-ghost flex-1 rounded-full py-2.5 text-xs text-center inline-flex items-center justify-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5"></i> Call</a>
+      </div>
+    </div>`).join("");
+})();
+
+/* ---------------- CONTACT FORM ---------------- */
+(function(){
+  $("#ctForm").addEventListener("submit", e=>{
+    e.preventDefault();
+    const via = e.submitter.dataset.send;
+    const name=$("#cName"), email=$("#cEmail"), msg=$("#cMsg");
+    let ok = true;
+    [name,email,msg].forEach(f=>{ if(!f.value.trim()){ f.style.borderColor="var(--red)"; setTimeout(()=>f.style.borderColor="",2200); ok=false; } });
+    if(!/^\S+@\S+\.\S+$/.test(email.value)){ email.style.borderColor="var(--red)"; setTimeout(()=>email.style.borderColor="",2200); ok=false; }
+    if(!ok){ toast("Please complete the highlighted fields","alert-circle"); return; }
+    const body = `Name: ${name.value}\nEmail: ${email.value}\nTopic: ${$("#cTopic").value}\n\nMessage:\n${msg.value}`;
+    if(via==="wa"){ window.open(waLink(body), "_blank"); toast("Opening WhatsApp…","message-circle"); }
+    else { window.location.href = mailLink($("#cTopic").value + " — Usmania Quetta", body); toast("Opening your email app…","mail"); }
+    e.target.reset();
+  });
+})();
+
+/* ---------------- FAQ ---------------- */
+(function(){
+  $("#faqWrap").innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item glass rounded-2xl overflow-hidden">
+      <button class="w-full flex items-center justify-between gap-4 px-6 py-4 text-left text-sm font-medium" data-faq="${i}">
+        ${f.q}
+        <span class="faq-icon shrink-0 w-7 h-7 rounded-full border border-[var(--gold)]/40 grid place-items-center text-[var(--gold2)]"><i data-lucide="plus" class="w-3.5 h-3.5"></i></span>
+      </button>
+      <div class="faq-body"><div class="overflow-hidden"><p class="px-6 pb-5 text-sm text-[var(--muted)] leading-relaxed">${f.a}</p></div></div>
+    </div>`).join("");
+  $$("#faqWrap [data-faq]").forEach(b => b.onclick = ()=>{
+    b.parentElement.classList.toggle("open");
+  });
+})();
+
+/* ---------------- NEWSLETTER ---------------- */
+$("#nlForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const em = $("#nlEmail");
+  if(!/^\S+@\S+\.\S+$/.test(em.value)){ em.style.borderColor="var(--red)"; setTimeout(()=>em.style.borderColor="",2200); toast("Please enter a valid email","alert-circle"); return; }
+  try{
+    const list = JSON.parse(localStorage.getItem("usq_news")||"[]");
+    list.push({email:em.value, at:new Date().toISOString()});
+    localStorage.setItem("usq_news", JSON.stringify(list));
+  }catch(err){}
+  em.value = "";
+  toast("Subscribed — buffet news first","party-popper");
+});
+
+/* ---------------- HERO PARALLAX ---------------- */
+(function(){
+  const wrap = $("#heroCollage");
+  if(!wrap || !matchMedia("(pointer:fine)").matches) return;
+  const imgs = wrap.querySelectorAll("[data-depth]");
+  wrap.addEventListener("mousemove", e=>{
+    const r = wrap.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width/2) / r.width;
+    const y = (e.clientY - r.top - r.height/2) / r.height;
+    imgs.forEach(img=>{
+      const d = parseFloat(img.dataset.depth);
+      img.style.transform = `translate(${x*d}px, ${y*d}px)`;
+    });
+  });
+  wrap.addEventListener("mouseleave", ()=> imgs.forEach(img=> img.style.transform = ""));
+})();
+
+/* Init icons */
+if(window.lucide) lucide.createIcons();
+</script>
+</body>
+</html>
